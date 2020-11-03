@@ -8,9 +8,279 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
-      
+    <!-- HEADER -->
+    <header class="container-fluid" id="header">
+      <!-- NAVBAR -->
+      <nav class="navbar navbar-expand-sm navbar-light bg-light" id="navbar">
+        <a class="navbar-brand" href="#">ALLEZ CINE!</a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+            aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Genre</a>
+              <div class="dropdown-menu" aria-labelledby="dropdownId">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Comédie</a>
+                <a class="dropdown-item" href="#">Western</a>
+                <a class="dropdown-item" href="#">Fiction</a>
+              </div>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+      <!-- JUMBOTRON -->
+      <div class="jumbotron jumbotron-fluid mb-0" id="jumbotron">
+        <div class="container">
+          <h1 class="display-3">LATEST ONLINE MOVIES</h1>
+          <p class="lead">Titre du film</p>
+          <hr class="my-2">
+          <p class="lead">
+            <a class="btn btn-primary btn-lg" href="" role="button">Watch trailer</a>
+          </p>
+        </div>
+      </div>
+      <nav class="navbar navbar-expand navbar-light bg-light mb-3">
+        <div class="nav navbar-nav">
+          <p><i class="fa fa-phone" aria-hidden="true"></i>+3248252456</p>
+          <a class="btn btn-dark ml-2" href="#">Login</a>
+          <a class="btn btn-dark ml-2" href="#">Register</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- HIGHLITED MOVIES -->
+    <section class="container" id="highlightMovies">
+      <div class="row border rounded justify-content-around mb-5">
+        <div class="col-lg-2">
+          <div class="card" id="highlightCard">
+            <div class="card-body">
+              <figure class="figure justify-content-around row">
+                <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder" class="figure-img img-fluid rounded col-12" alt="">
+                <figcaption class="figure-caption text-xs-right col-12 row">
+                  <h3 class="card-title col-12">Title</h3>
+                  <p class="card-text col-6 m-0 p-0" id="highlightGenre">Genre</p>
+                  <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
+                </figcaption>
+              </figure> 
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2">
+          <div class="card" id="highlightCard">
+            <div class="card-body">
+              <figure class="figure justify-content-around row">
+                <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder" class="figure-img img-fluid rounded col-12" alt="">
+                <figcaption class="figure-caption text-xs-right col-12 row">
+                  <h3 class="card-title col-12">Title</h3>
+                  <p class="card-text col-6 m-0 p-0" id="highlightGenre">Genre</p>
+                  <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
+                </figcaption>
+              </figure> 
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2">
+          <div class="card" id="highlightCard">
+            <div class="card-body">
+              <figure class="figure justify-content-around row">
+                <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder" class="figure-img img-fluid rounded col-12" alt="">
+                <figcaption class="figure-caption text-xs-right col-12 row">
+                  <h3 class="card-title col-12">Title</h3>
+                  <p class="card-text col-6 m-0 p-0" id="highlightGenre">Genre</p>
+                  <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
+                </figcaption>
+              </figure> 
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2">
+          <div class="card" id="highlightCard">
+            <div class="card-body">
+              <figure class="figure justify-content-around row">
+                <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder" class="figure-img img-fluid rounded col-12" alt="">
+                <figcaption class="figure-caption text-xs-right col-12 row">
+                  <h3 class="card-title col-12">Title</h3>
+                  <p class="card-text col-6 m-0 p-0" id="highlightGenre">Genre</p>
+                  <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
+                </figcaption>
+              </figure> 
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2">
+          <div class="card" id="highlightCard">
+            <div class="card-body">
+              <figure class="figure justify-content-around row">
+                <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder" class="figure-img img-fluid rounded col-12" alt="">
+                <figcaption class="figure-caption text-xs-right col-12 row">
+                  <h3 class="card-title col-12">Title</h3>
+                  <p class="card-text col-6 m-0 p-0" id="highlightGenre">Genre</p>
+                  <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
+                </figcaption>
+              </figure> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED MOVIES -->
+    <section class="container" id="featuredMovies">
+      <h3>FEATURED MOVIES</h3>
+      <div class="row border rounded justify-content-around">
+        <div class="col-lg-2">
+          <div class="card" id="highlightCard">
+            <div class="card-body">
+              <figure class="figure justify-content-around row">
+                <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder" class="figure-img img-fluid rounded col-12" alt="">
+                <figcaption class="figure-caption text-xs-right col-12 row">
+                  <h3 class="card-title col-12">Title</h3>
+                  <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
+                </figcaption>
+              </figure> 
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2">
+          <div class="card" id="highlightCard">
+            <div class="card-body">
+              <figure class="figure justify-content-around row">
+                <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder" class="figure-img img-fluid rounded col-12" alt="">
+                <figcaption class="figure-caption text-xs-right col-12 row">
+                  <h3 class="card-title col-12">Title</h3>
+                  <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
+                </figcaption>
+              </figure> 
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2">
+          <div class="card" id="highlightCard">
+            <div class="card-body">
+              <figure class="figure justify-content-around row">
+                <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder" class="figure-img img-fluid rounded col-12" alt="">
+                <figcaption class="figure-caption text-xs-right col-12 row">
+                  <h3 class="card-title col-12">Title</h3>
+                  <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
+                </figcaption>
+              </figure> 
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2">
+          <div class="card" id="highlightCard">
+            <div class="card-body">
+              <figure class="figure justify-content-around row">
+                <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder" class="figure-img img-fluid rounded col-12" alt="">
+                <figcaption class="figure-caption text-xs-right col-12 row">
+                  <h3 class="card-title col-12">Title</h3>
+                  <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
+                </figcaption>
+              </figure> 
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2">
+          <div class="card" id="highlightCard">
+            <div class="card-body">
+              <figure class="figure justify-content-around row">
+                <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder" class="figure-img img-fluid rounded col-12" alt="">
+                <figcaption class="figure-caption text-xs-right col-12 row">
+                  <h3 class="card-title col-12">Title</h3>
+                  <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
+                </figcaption>
+              </figure> 
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row border rounded justify-content-around">
+        <div class="col-lg-2">
+          <div class="card" id="highlightCard">
+            <div class="card-body">
+              <figure class="figure justify-content-around row">
+                <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder" class="figure-img img-fluid rounded col-12" alt="">
+                <figcaption class="figure-caption text-xs-right col-12 row">
+                  <h3 class="card-title col-12">Title</h3>
+                  <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
+                </figcaption>
+              </figure> 
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2">
+          <div class="card" id="highlightCard">
+            <div class="card-body">
+              <figure class="figure justify-content-around row">
+                <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder" class="figure-img img-fluid rounded col-12" alt="">
+                <figcaption class="figure-caption text-xs-right col-12 row">
+                  <h3 class="card-title col-12">Title</h3>
+                  <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
+                </figcaption>
+              </figure> 
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2">
+          <div class="card" id="highlightCard">
+            <div class="card-body">
+              <figure class="figure justify-content-around row">
+                <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder" class="figure-img img-fluid rounded col-12" alt="">
+                <figcaption class="figure-caption text-xs-right col-12 row">
+                  <h3 class="card-title col-12">Title</h3>
+                  <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
+                </figcaption>
+              </figure> 
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2">
+          <div class="card" id="highlightCard">
+            <div class="card-body">
+              <figure class="figure justify-content-around row">
+                <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder" class="figure-img img-fluid rounded col-12" alt="">
+                <figcaption class="figure-caption text-xs-right col-12 row">
+                  <h3 class="card-title col-12">Title</h3>
+                  <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
+                </figcaption>
+              </figure> 
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-2">
+          <div class="card" id="highlightCard">
+            <div class="card-body">
+              <figure class="figure justify-content-around row">
+                <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder" class="figure-img img-fluid rounded col-12" alt="">
+                <figcaption class="figure-caption text-xs-right col-12 row">
+                  <h3 class="card-title col-12">Title</h3>
+                  <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
+                </figcaption>
+              </figure> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
