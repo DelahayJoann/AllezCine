@@ -1,1 +1,67 @@
+ #sidebar {
+    z-index: 3;
+    width: 3rem;
+    position: fixed;
+    text-align: center;
+    margin-left: 2rem;
+    a {
+        text-decoration: none;
+        display: flex;
+        justify-content: flex-end;
+        line-height: 2;
+      }
+      p {
+        color: white;
+        position: relative;
+        display:flex;
+        justify-content: end;
+        align-items: center;
+        left: -4rem;
+        font-family: 'Lato';
+        i {
+            left: 3rem;
+            top:0.5em;
+            position: relative;
+            color: black;
+            background: white;
+            padding:1.3em;
+            border-radius: 50%;
+          }
+      }
+  }
 
+  // *** ANIMATION ***
+
+  .social {
+    margin-left: -17rem;
+    width: 20rem;
+    padding: 0;
+    display: inline-table;
+    height: 0px;
+    transition-property: margin-left;
+    border-radius: 0 10em 10em 0;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    &:hover {
+    margin-left: -30px;
+    width: 15em;
+  }
+  } 
+  
+// *** Social Colors ***
+
+  .facebook {
+    background-color: #3b5998;
+  }
+  
+  .twitter {
+    background-color: #4099FF;
+  }
+  
+  .google {
+    background-color: #DD4B39;
+  }
+  
+  .youtube {
+    background-color: #E52D27;
+  }
