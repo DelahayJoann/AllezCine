@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <script src="./assets/js/index.js"></script>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -13,6 +13,7 @@
   <body>
     <!-- HEADER -->
     <header class="container-fluid" id="header">
+
       <!-- NAVBAR -->
       <nav class="navbar navbar-expand-sm navbar-light bg-light" id="navbar">
         <a class="navbar-brand" href="#">ALLEZ CINE!</a>
@@ -44,17 +45,29 @@
           </form>
         </div>
       </nav>
+
       <!-- JUMBOTRON -->
-      <div class="jumbotron jumbotron-fluid mb-0" id="jumbotron">
-        <div class="container">
+      <div class="jumbotron jumbotron-fluid carousel slide mb-0" id="jumbotron" data-ride="carousel" data-interval="6000" data-pause="false">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" id="carouselInner">
+          
+        </div>
+
+        <!-- JUMBOTRON:Content over -->
+        <!-- <div class="container">
           <h1 class="display-3">LATEST ONLINE MOVIES</h1>
           <p class="lead">Titre du film</p>
           <hr class="my-2">
           <p class="lead">
             <a class="btn btn-primary btn-lg" href="" role="button">Watch trailer</a>
           </p>
-        </div>
+        </div> -->
       </div>
+
       <!-- BOTTOM NAVBAR -->
       <nav class="navbar navbar-expand navbar-light bg-light mb-3">
         <div class="nav navbar-nav">
@@ -66,232 +79,17 @@
     </header>
 
     <!-- HIGHLITED MOVIES -->
-    <section class="container" id="highlightMovies">
-      <div class="row border rounded justify-content-around mb-5">
+    <section class="container" id="highlightedMovies">
+      <div class="row border rounded justify-content-around mb-5" id="highlightedMoviesRow">
 
-        <div class="col-lg-2">
-          <div class="card" id="highlightCard">
-            <div class="card-body">
-              <figure class="figure justify-content-around row">
-                <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder" class="figure-img img-fluid rounded col-12" alt="">
-                <figcaption class="figure-caption text-xs-right col-12 row">
-                  <h3 class="card-title col-12">Title</h3>
-                  <p class="card-text col-6 m-0 p-0" id="highlightGenre">Genre</p>
-                  <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
-                </figcaption>
-              </figure> 
-            </div>
-          </div>
-        </div>
-        <!-- Highlited Card -->
-        <div class="col-lg-2">
-          <div class="card" id="highlightCard">
-            <div class="card-body">
-              <figure class="figure justify-content-around row">
-                <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder" class="figure-img img-fluid rounded col-12" alt="">
-                <figcaption class="figure-caption text-xs-right col-12 row">
-                  <h3 class="card-title col-12">Title</h3>
-                  <p class="card-text col-6 m-0 p-0" id="highlightGenre">Genre</p>
-                  <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
-                </figcaption>
-              </figure> 
-            </div>
-          </div>
-        </div>
-        <!-- Highlited Card -->
-        <div class="col-lg-2">
-          <div class="card" id="highlightCard">
-            <div class="card-body">
-              <figure class="figure justify-content-around row">
-                <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder" class="figure-img img-fluid rounded col-12" alt="">
-                <figcaption class="figure-caption text-xs-right col-12 row">
-                  <h3 class="card-title col-12">Title</h3>
-                  <p class="card-text col-6 m-0 p-0" id="highlightGenre">Genre</p>
-                  <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
-                </figcaption>
-              </figure> 
-            </div>
-          </div>
-        </div>
-        <!-- Highlited Card -->
-        <div class="col-lg-2">
-          <div class="card" id="highlightCard">
-            <div class="card-body">
-              <figure class="figure justify-content-around row">
-                <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder" class="figure-img img-fluid rounded col-12" alt="">
-                <figcaption class="figure-caption text-xs-right col-12 row">
-                  <h3 class="card-title col-12">Title</h3>
-                  <p class="card-text col-6 m-0 p-0" id="highlightGenre">Genre</p>
-                  <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
-                </figcaption>
-              </figure> 
-            </div>
-          </div>
-        </div>
-        <!-- Highlited Card -->
-        <div class="col-lg-2">
-          <div class="card" id="highlightCard">
-            <div class="card-body">
-              <figure class="figure justify-content-around row">
-                <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder" class="figure-img img-fluid rounded col-12" alt="">
-                <figcaption class="figure-caption text-xs-right col-12 row">
-                  <h3 class="card-title col-12">Title</h3>
-                  <p class="card-text col-6 m-0 p-0" id="highlightGenre">Genre</p>
-                  <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
-                </figcaption>
-              </figure> 
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
     <!-- FEATURED MOVIES -->
     <section class="container" id="featuredMovies">
       <h3>FEATURED MOVIES</h3>
-      <div class="row border rounded justify-content-around">
-        <!-- Featured Card -->
-        <div class="col-lg-2">
-          <div class="card" id="highlightCard">
-            <div class="card-body">
-              <figure class="figure justify-content-around row">
-                <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder" class="figure-img img-fluid rounded col-12" alt="">
-                <figcaption class="figure-caption text-xs-right col-12 row">
-                  <h3 class="card-title col-12">Title</h3>
-                  <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
-                </figcaption>
-              </figure> 
-            </div>
-          </div>
-        </div>
-        <!-- Featured Card -->
-        <div class="col-lg-2">
-          <div class="card" id="highlightCard">
-            <div class="card-body">
-              <figure class="figure justify-content-around row">
-                <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder" class="figure-img img-fluid rounded col-12" alt="">
-                <figcaption class="figure-caption text-xs-right col-12 row">
-                  <h3 class="card-title col-12">Title</h3>
-                  <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
-                </figcaption>
-              </figure> 
-            </div>
-          </div>
-        </div>
-        <!-- Featured Card -->
-        <div class="col-lg-2">
-          <div class="card" id="highlightCard">
-            <div class="card-body">
-              <figure class="figure justify-content-around row">
-                <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder" class="figure-img img-fluid rounded col-12" alt="">
-                <figcaption class="figure-caption text-xs-right col-12 row">
-                  <h3 class="card-title col-12">Title</h3>
-                  <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
-                </figcaption>
-              </figure> 
-            </div>
-          </div>
-        </div>
-        <!-- Featured Card -->
-        <div class="col-lg-2">
-          <div class="card" id="highlightCard">
-            <div class="card-body">
-              <figure class="figure justify-content-around row">
-                <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder" class="figure-img img-fluid rounded col-12" alt="">
-                <figcaption class="figure-caption text-xs-right col-12 row">
-                  <h3 class="card-title col-12">Title</h3>
-                  <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
-                </figcaption>
-              </figure> 
-            </div>
-          </div>
-        </div>
-        <!-- Featured Card -->
-        <div class="col-lg-2">
-          <div class="card" id="highlightCard">
-            <div class="card-body">
-              <figure class="figure justify-content-around row">
-                <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder" class="figure-img img-fluid rounded col-12" alt="">
-                <figcaption class="figure-caption text-xs-right col-12 row">
-                  <h3 class="card-title col-12">Title</h3>
-                  <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
-                </figcaption>
-              </figure> 
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- Featured Card -->
-      <div class="row border rounded justify-content-around">
-        <div class="col-lg-2">
-          <div class="card" id="highlightCard">
-            <div class="card-body">
-              <figure class="figure justify-content-around row">
-                <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder" class="figure-img img-fluid rounded col-12" alt="">
-                <figcaption class="figure-caption text-xs-right col-12 row">
-                  <h3 class="card-title col-12">Title</h3>
-                  <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
-                </figcaption>
-              </figure> 
-            </div>
-          </div>
-        </div>
-        <!-- Featured Card -->
-        <div class="col-lg-2">
-          <div class="card" id="highlightCard">
-            <div class="card-body">
-              <figure class="figure justify-content-around row">
-                <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder" class="figure-img img-fluid rounded col-12" alt="">
-                <figcaption class="figure-caption text-xs-right col-12 row">
-                  <h3 class="card-title col-12">Title</h3>
-                  <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
-                </figcaption>
-              </figure> 
-            </div>
-          </div>
-        </div>
-        <!-- Featured Card -->
-        <div class="col-lg-2">
-          <div class="card" id="highlightCard">
-            <div class="card-body">
-              <figure class="figure justify-content-around row">
-                <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder" class="figure-img img-fluid rounded col-12" alt="">
-                <figcaption class="figure-caption text-xs-right col-12 row">
-                  <h3 class="card-title col-12">Title</h3>
-                  <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
-                </figcaption>
-              </figure> 
-            </div>
-          </div>
-        </div>
-        <!-- Featured Card -->
-        <div class="col-lg-2">
-          <div class="card" id="highlightCard">
-            <div class="card-body">
-              <figure class="figure justify-content-around row">
-                <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder" class="figure-img img-fluid rounded col-12" alt="">
-                <figcaption class="figure-caption text-xs-right col-12 row">
-                  <h3 class="card-title col-12">Title</h3>
-                  <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
-                </figcaption>
-              </figure> 
-            </div>
-          </div>
-        </div>
-        <!-- Featured Card -->
-        <div class="col-lg-2">
-          <div class="card" id="highlightCard">
-            <div class="card-body">
-              <figure class="figure justify-content-around row">
-                <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder" class="figure-img img-fluid rounded col-12" alt="">
-                <figcaption class="figure-caption text-xs-right col-12 row">
-                  <h3 class="card-title col-12">Title</h3>
-                  <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
-                </figcaption>
-              </figure> 
-            </div>
-          </div>
-        </div>
+      <div class="row border rounded justify-content-around" id="featuredMoviesRow">
+        
       </div>
     </section>
 
@@ -302,7 +100,7 @@
     <!-- Div container -->
     <!-- Subscribe to the newsletter -->
     <div class="newsletter">
-      <section class="container">
+      <section class="container-fluid">
         <div class="row">
           <div class="col-sm-12 d-flex justify-content-center">
             <div class="col-sm-6 content ">
@@ -317,7 +115,7 @@
           </div>
         </div>
       </section>
-      <section class="container">
+      <section class="container-fluid">
         <div class="row">
           <div class="col col1">
             <h5>Release</h5>
@@ -436,7 +234,7 @@
 
   </footer>
 
-  <!-- Optional JavaScript -->
+
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -448,5 +246,4 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
 </body>
->>>>>>> delahayjoann
 </html>
