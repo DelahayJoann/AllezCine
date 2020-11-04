@@ -121,17 +121,11 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchNowPlaying]).then(va
     function getGenreName(movieGenreId){
         return genreList.find(element => element.id == movieGenreId).name;
     }
-    async function getTrailer(id){
-        fetch('https://api.themoviedb.org/3/movie/'+id+'/videos?api_key=766c1ba4a606493ccaf76431323f4829&language=fr').then( (data) =>{
-            return TMDB.youtubeBaseURL+data.key;
-        });
-        
-    }
 
     async function getTrailer(id) {
         let res = await fetch('https://api.themoviedb.org/3/movie/'+id+'/videos?api_key=766c1ba4a606493ccaf76431323f4829&language=fr');  
         if (res.status == 200) {
-          let json = await res.json(); // (3)
+          let json = await res.json();
           return json.results.map(x => x.key);
         }
         throw new Error(res.status);
