@@ -133,17 +133,6 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchNowPlaying]).then(va
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+      
 });
 
