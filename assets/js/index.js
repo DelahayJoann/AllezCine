@@ -17,8 +17,8 @@ var highlightedMovieCardHTMLcode =
         <img src= _imgSrc class="figure-img img-fluid rounded col-12" alt="">
         <figcaption class="figure-caption text-xs-right col-12 row">
             <p class="card-title col-12"> _title </p>
-            <p class="card-text col-6 m-0 p-0" id="highlightYear"> _year </p>
-            <p class="card-text col-6 m-0 p-0" id="highlightGenre"> _genre </p>
+            <p class="card-text col-6 m-0 p-0 text-left" id="highlightYear"> _year </p>
+            <p class="card-text col-6 m-0 p-0 text-right" id="highlightGenre"> _genre </p>
         </figcaption>
         </figure> 
     </div>
@@ -55,9 +55,9 @@ var shopMoviesCardHTMLcode =
 </div>`;
 
 var carouselInnerHTMLcode =
-    `<div class="carousel-item _tmp ">
+    `<div class="carousel-item _tmp " style="max-height: 768px;">
 <img class="d-block img-fluid" src= _imgSrc alt="First slide">
-<div class="carousel-caption d-none d-md-block">
+<div class="carousel-caption d-none d-md-block mb-3">
   <h1 class="display-3">LATEST ONLINE MOVIES</h1>
   <p class="lead"> _title </p>
   <hr class="my-2">
@@ -99,7 +99,6 @@ var bigCardHTMLcode =
 
 
 // Classes/Objects
-
 var TMDB = {
     apiKey: "?api_key=766c1ba4a606493ccaf76431323f4829",
     apiOption: "&language=fr",
@@ -205,20 +204,6 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchNowPlaying, fetchSho
         }
         throw new Error(res.status);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 });
 
