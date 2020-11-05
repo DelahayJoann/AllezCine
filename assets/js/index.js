@@ -15,8 +15,8 @@ var highlightedMovieCardHTMLcode =
         <img src= _imgSrc class="figure-img img-fluid rounded col-12" alt="">
         <figcaption class="figure-caption text-xs-right col-12 row">
             <p class="card-title col-12"> _title </p>
-            <p class="card-text col-6 m-0 p-0" id="highlightYear"> _year </p>
-            <p class="card-text col-6 m-0 p-0" id="highlightGenre"> _genre </p>
+            <p class="card-text col-6 m-0 p-0 text-left" id="highlightYear"> _year </p>
+            <p class="card-text col-6 m-0 p-0 text-right" id="highlightGenre"> _genre </p>
         </figcaption>
         </figure> 
     </div>
