@@ -50,7 +50,6 @@ var carouselInnerHTMLcode =
 
 
 // Classes/Objects
-
 var TMDB = {
     apiKey : "?api_key=766c1ba4a606493ccaf76431323f4829",
     apiOption: "&language=fr",
@@ -118,6 +117,7 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchNowPlaying]).then(va
     });
 
     
+    // Get functions
     function getGenreName(movieGenreId){
         return genreList.find(element => element.id == movieGenreId).name;
     }
