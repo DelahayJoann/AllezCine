@@ -37,9 +37,9 @@ var featuredMovieCardHTMLcode =
     </div>
 </div>`;
 var carouselInnerHTMLcode =
-`<div class="carousel-item _tmp ">
+`<div class="carousel-item _tmp " style="max-height: 768px;">
 <img class="d-block img-fluid" src= _imgSrc alt="First slide">
-<div class="carousel-caption d-none d-md-block">
+<div class="carousel-caption d-none d-md-block mb-3">
   <h1 class="display-3">LATEST ONLINE MOVIES</h1>
   <p class="lead"> _title </p>
   <hr class="my-2">
@@ -62,7 +62,7 @@ var TMDB = {
 const fetchGenres = fetch('https://api.themoviedb.org/3/genre/movie/list'+TMDB.apiKey+TMDB.apiOption);  // Get all Genres with their id
 const fetchTopRated = fetch('https://api.themoviedb.org/3/movie/top_rated'+TMDB.apiKey+TMDB.apiOption); // Highlighted
 const fetchPopular = fetch('https://api.themoviedb.org/3/movie/popular'+TMDB.apiKey+TMDB.apiOption); // Featured
-const fetchNowPlaying = fetch('https://api.themoviedb.org/3/movie/popular'+TMDB.apiKey+TMDB.apiOption);
+const fetchNowPlaying = fetch('https://api.themoviedb.org/3/movie/popular'+TMDB.apiKey+TMDB.apiOption); // Get Movies to populate jumbotron carousel
 
 
 Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchNowPlaying]).then(values=>{
@@ -105,6 +105,7 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchNowPlaying]).then(va
     // Transform rawFeaturedGenre into an Array of unique genre
     featuredGenre = Array.from([...new Set(rawFeaturedGenre)]);
 
+    // Build Jumbotron carousel slide
     nowTheatre.map(async (x,index) =>{
         let tmp = carouselInnerHTMLcode;
         if(index == 0) tmp = tmp.replace(/_tmp/, 'active');;

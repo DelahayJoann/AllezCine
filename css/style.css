@@ -5,34 +5,21 @@
   text-align: center;
   margin-left: 2rem;
 }
-
 #sidebar a {
   text-decoration: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  justify-content: flex-end;
   line-height: 2;
 }
-
 #sidebar p {
   color: white;
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: end;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: end;
+  align-items: center;
   left: -4rem;
-  font-family: 'Lato';
+  font-family: "Lato";
 }
-
 #sidebar p i {
   left: 3rem;
   top: 0.5em;
@@ -43,20 +30,94 @@
   border-radius: 50%;
 }
 
+#jumbotron {
+  max-height: 768px;
+  padding: 0px;
+  background-color: rgba(0, 0, 0, 0);
+  position: relative;
+}
+@media (max-width: 576px) {
+  #jumbotron .carousel-indicators {
+    visibility: hidden;
+  }
+}
+#jumbotron img {
+  object-fit: cover;
+}
+#jumbotron #navbar {
+  background-color: rgba(0, 0, 0, 0);
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  font-weight: bold;
+}
+#jumbotron #navbar .navbar-brand {
+  color: #db5252;
+  font-size: 48px;
+}
+#jumbotron #navbar .navbar-brand #whitespan {
+  color: white;
+}
+#jumbotron #navbar .navbar-collapse {
+  background-color: #554b4b;
+  padding: 0px 15px;
+  z-index: 4;
+}
+@media (min-width: 576px) {
+  #jumbotron #navbar .navbar-collapse {
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+#jumbotron #navbar .nav-link {
+  color: #db5252;
+}
+#jumbotron #navbar #navbarcontact {
+  color: white;
+}
+#jumbotron #navbar #navbarsearch {
+  background-color: rgba(46, 39, 39, 0.705);
+  border-radius: 20px;
+  max-width: 250px;
+}
+#jumbotron #navbar #navbarsearch .search_input {
+  color: white;
+  border: 0;
+  outline: 0;
+  background: none;
+  line-height: 40px;
+  padding: 0px;
+  caret-color: #db5252;
+}
+#jumbotron #navbar #navbarsearch .search_input::placeholder {
+  color: white;
+}
+#jumbotron #navbar #navbarsearch .search_icon {
+  height: 40px;
+  width: 40px;
+  float: right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: white;
+  text-decoration: none;
+}
+
+#jumbobottomnavbar {
+  background-color: #db5252;
+}
+
 .social {
   margin-left: -17rem;
   width: 20rem;
   padding: 0;
   display: inline-table;
   height: 0px;
-  -webkit-transition-property: margin-left;
   transition-property: margin-left;
   border-radius: 0 10em 10em 0;
   cursor: pointer;
-  -webkit-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
-
 .social:hover {
   margin-left: -30px;
   width: 15em;
@@ -77,4 +138,5 @@
 .youtube {
   background-color: #E52D27;
 }
+
 /*# sourceMappingURL=style.css.map */
