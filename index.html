@@ -8,14 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-  crossorigin="anonymous"></script>
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-  integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-  crossorigin="anonymous"></script>
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-  integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-  crossorigin="anonymous"></script>
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
   <script src="./assets/js/index.js"></script>
 
   <!-- Bootstrap CSS -->
@@ -29,49 +29,52 @@
 
 <body>
   <!-- HEADER -->
-  <header class="container-fluid" id="header"> 
+  <header class="container-fluid" id="header">
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-sm navbar-light bg-light" id="navbar">
+      <a class="navbar-brand" href="#">ALLEZ CINE!</a>
+      <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+        aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">Genre</a>
+            <div class="dropdown-menu" aria-labelledby="dropdownId">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Comédie</a>
+              <a class="dropdown-item" href="#">Western</a>
+              <a class="dropdown-item" href="#">Fiction</a>
+            </div>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
 
     <!-- JUMBOTRON -->
-    <div class="jumbotron jumbotron-fluid carousel slide mb-0" id="jumbotron" data-ride="carousel" data-interval="6000" data-pause="false">
-       <!-- NAVBAR -->
-      <nav class="navbar navbar-expand-sm navbar-light" id="navbar">
-        <a class="navbar-brand" href="#">ALLEZ<span id="whitespan">CINE!</span></a>
-        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-            aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse row" id="collapsibleNavId">
-          <ul class="navbar-nav mr-auto mt-2 mt-lg-0 d-flex col-sm-6">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Genre</a>
-              <div class="dropdown-menu" aria-labelledby="dropdownId">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Comédie</a>
-                <a class="dropdown-item" href="#">Western</a>
-                <a class="dropdown-item" href="#">Fiction</a>
-              </div>
-            </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="#" id="navbarcontact">Contact</a>
-            </li>
-          </ul>
-          <form class="form-inline my-2 my-lg-0 col-sm-6" id="navbarsearch">
-            <input class="form-control search_input" type="text" placeholder="Search...">
-            <a href="#" class="search_icon"><i class="fa fa-search" aria-hidden="true"></i></a>
-          </form>
-        </div>
-      </nav>
-      <div class="carousel-inner" id="carouselInner">
-        
-      </div>
+    <div class="jumbotron jumbotron-fluid carousel slide mb-0" id="jumbotron" data-ride="carousel" data-interval="6000"
+      data-pause="false">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
       </ol>
+      <div class="carousel-inner" id="carouselInner">
+
+      </div>
     </div>
 
     <!-- BOTTOM NAVBAR -->
@@ -84,29 +87,33 @@
     </nav>
   </header>
 
-  <!-- Social Media SIDE-BAR -->
-  <div id="sidebar">
-    <div class="social facebook">
-      <a href=" https://www.facebook.com " target="_blank">
-        <p>Facebook <i id="faceIcon" class="fa fa-facebook"></i> </p>
+  <div class="sidebar">
+    <div class="envelope">
+      <a href="https://www.twitter.com" target="_blank" class="social twitter">
+        <p>Twitter</p>
+        <i class="fa fa-twitter" aria-hidden="true"></i>
       </a>
     </div>
-    <div class="social twitter">
-      <a href=" https://www.twitter.com " target="_blank">
-        <p>Twitter<i class="fa fa-twitter"></i> </p>
+    <div class="envelope">
+      <a href="https://www.facebook.com" target="_blank" class="social facebook">
+        <p>Facebook</p>
+        <i class="fa fa-facebook" aria-hidden="true"></i>
       </a>
     </div>
-    <div class="social google">
-      <a href=" https://www.plus.google.com " target="_blank">
-        <p>Google+<i class="fa fa-google-plus"></i> </p>
+    <div class="envelope">
+      <a href="https://www.youtube.com" target="_blank" class="social youtube">
+        <p>Youtube</p>
+        <i class="fa fa-youtube" aria-hidden="true"></i>
       </a>
     </div>
-    <div class="social youtube">
-      <a href=" https://www.youtube.com " target="_blank">
-        <p>Youtube<i class="fa fa-youtube-play"></i> </p>
+    <div class="envelope">
+      <a href="https://www.plus.google.com" target="_blank" class="social google">
+        <p>Google</p>
+        <i class="fa fa-google-plus" aria-hidden="true"></i>
       </a>
     </div>
   </div>
+
 
   <!-- HIGHLITED MOVIES -->
   <section class="container" id="highlightedMovies">
@@ -115,172 +122,27 @@
   </section>
 
 
-<!-- FEATURED MOVIES -->
-<section class="container" id="featuredMovies">
-  <h3>FEATURED MOVIES</h3>
-  <div class="row border rounded justify-content-around" id="featuredMoviesRow">
-    
-  </div>
-</section>
+  <!-- FEATURED MOVIES -->
+  <section class="container" id="featuredMovies">
+    <h3>FEATURED MOVIES</h3>
+    <div class="row border rounded justify-content-around" id="featuredMoviesRow">
+
+    </div>
+  </section>
 
   <!-- Section : Shop Movies -->
   <section class="container-fluid" id=shopMovies>
     <h3>Shop Movies</h3>
     <div class="row">
-      <div class="col-8">
-        <div class="container" id="underShopMovies">
-          <div class="row">
-            <div class="col-3">
-              <div class="card" id="highlightCard">
-                <div class="card-body">
-                  <figure class="figure justify-content-around row">
-                    <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder"
-                      class="figure-img img-fluid rounded col-12" alt="">
-                    <figcaption class="figure-caption text-xs-right col-12 row">
-                      <h3 class="card-title col-12">Title</h3>
-                      <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
-                    </figcaption>
-                  </figure>
-                </div>
-              </div>
-            </div>
-            <div class="col-3">
-              <div class="card" id="highlightCard">
-                <div class="card-body">
-                  <figure class="figure justify-content-around row">
-                    <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder"
-                      class="figure-img img-fluid rounded col-12" alt="">
-                    <figcaption class="figure-caption text-xs-right col-12 row">
-                      <h3 class="card-title col-12">Title</h3>
-                      <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
-                    </figcaption>
-                  </figure>
-                </div>
-              </div>
-            </div>
-            <div class="col-3">
-              <div class="card" id="highlightCard">
-                <div class="card-body">
-                  <figure class="figure justify-content-around row">
-                    <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder"
-                      class="figure-img img-fluid rounded col-12" alt="">
-                    <figcaption class="figure-caption text-xs-right col-12 row">
-                      <h3 class="card-title col-12">Title</h3>
-                      <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
-                    </figcaption>
-                  </figure>
-                </div>
-              </div>
-            </div>
-            <div class="col-3">
-              <div class="card" id="highlightCard">
-                <div class="card-body">
-                  <figure class="figure justify-content-around row">
-                    <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder"
-                      class="figure-img img-fluid rounded col-12" alt="">
-                    <figcaption class="figure-caption text-xs-right col-12 row">
-                      <h3 class="card-title col-12">Title</h3>
-                      <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
-                    </figcaption>
-                  </figure>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-3">
-              <div class="card" id="highlightCard">
-                <div class="card-body">
-                  <figure class="figure justify-content-around row">
-                    <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder"
-                      class="figure-img img-fluid rounded col-12" alt="">
-                    <figcaption class="figure-caption text-xs-right col-12 row">
-                      <h3 class="card-title col-12">Title</h3>
-                      <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
-                    </figcaption>
-                  </figure>
-                </div>
-              </div>
-            </div>
-            <div class="col-3">
-              <div class="card" id="highlightCard">
-                <div class="card-body">
-                  <figure class="figure justify-content-around row">
-                    <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder"
-                      class="figure-img img-fluid rounded col-12" alt="">
-                    <figcaption class="figure-caption text-xs-right col-12 row">
-                      <h3 class="card-title col-12">Title</h3>
-                      <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
-                    </figcaption>
-                  </figure>
-                </div>
-              </div>
-            </div>
-            <div class="col-3">
-              <div class="card" id="highlightCard">
-                <div class="card-body">
-                  <figure class="figure justify-content-around row">
-                    <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder"
-                      class="figure-img img-fluid rounded col-12" alt="">
-                    <figcaption class="figure-caption text-xs-right col-12 row">
-                      <h3 class="card-title col-12">Title</h3>
-                      <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
-                    </figcaption>
-                  </figure>
-                </div>
-              </div>
-            </div>
-            <div class="col-3">
-              <div class="card" id="highlightCard">
-                <div class="card-body">
-                  <figure class="figure justify-content-around row">
-                    <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder"
-                      class="figure-img img-fluid rounded col-12" alt="">
-                    <figcaption class="figure-caption text-xs-right col-12 row">
-                      <h3 class="card-title col-12">Title</h3>
-                      <p class="card-text col-6 m-0 p-0" id="highlightYear">Année</p>
-                    </figcaption>
-                  </figure>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class="row col-8" id="underShopMovies">
+
       </div>
       <div class="col-4">
         <!-- Modal -->
 
         <div class="card" id="highlightCard">
-          <div class="card-body">
-            <figure class="figure justify-content-around row">
-              <img src="https://via.placeholder.com/150/000000/FFFFFF/?text=ImgPlaceholder"
-                class="figure-img img-fluid rounded col-12" alt="">
-              <figcaption class="figure-caption text-xs-right col-12 row">
-                <div class="container">
-                  <div class="row">
-                    <h3 class="card-title col-12">Title</h3>
-                    <p class="card-text col-3 m-0 p-0" id="storyline">Story line</p>
-                    <p class="card-text col-1 m-0 p-0" class="dot">:</p>
-                    <p class="card-text col-8 m-0 p-0" id="storylineText">Story line text</p>
-                  </div>
-                  <div class="row">
-                    <p class="card-text col-3 m-0 p-0" id="releaseOn">Release On</p>
-                    <p class="card-text col-1 m-0 p-0" class="dot">:</p>
-                    <p class="card-text col-8 m-0 p-0" id="releaseDate">Release date</p>
-                  </div>
-                  <div class="row">
-                    <p class="card-text col-3 m-0 p-0" id="Genres">Genres</p>
-                    <p class="card-text col-1 m-0 p-0" class="dot">:</p>
-                    <p class="card-text col-8 m-0 p-0" id="genresText">Genres Text</p>
-                  </div>
-                  <div class="row">
-                    <p class="card-text col-3 m-0 p-0" id="price">Price</p>
-                    <p class="card-text col-1 m-0 p-0" class="dot">:</p>
-                    <p class="card-text col-8 m-0 p-0" id="priceTag">Price tag</p>
-                  </div>
-                </div>
-              </figcaption>
-            </figure>
+          <div class="card-body" id="theBigCard">
+
           </div>
         </div>
       </div>
@@ -291,7 +153,7 @@
   <!-- Button trigger modal -->
   <section class="container">
     <div class="row">
-      <h3 class="col-2">Contact Us</h3>
+      <h3 class="col-12">Contact Us</h3>
     </div>
     <div class="row justify-content-center">
       <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modelId">Contact Us</button>
@@ -458,7 +320,7 @@
         </div>
       </section>
     </div>
-    
+
     <section class="container">
       <div class="row">
         <div class="col-12 d-flex justify-content-center">
