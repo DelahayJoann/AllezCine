@@ -43,6 +43,7 @@
 }
 #jumbotron img {
   object-fit: cover;
+  width: 100%;
 }
 #jumbotron #navbar {
   background-color: rgba(0, 0, 0, 0);
@@ -101,6 +102,11 @@
   border-radius: 50%;
   color: white;
   text-decoration: none;
+}
+@media (max-width: 576px) {
+  #jumbotron #navbar #navbarsearch .search_icon {
+    visibility: hidden;
+  }
 }
 
 #jumbobottomnavbar {
