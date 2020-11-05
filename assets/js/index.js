@@ -111,7 +111,7 @@ var TMDB = {
 const fetchGenres = fetch('https://api.themoviedb.org/3/genre/movie/list' + TMDB.apiKey + TMDB.apiOption);  // Get all Genres with their id
 const fetchTopRated = fetch('https://api.themoviedb.org/3/movie/top_rated' + TMDB.apiKey + TMDB.apiOption); // Highlighted
 const fetchPopular = fetch('https://api.themoviedb.org/3/movie/popular' + TMDB.apiKey + TMDB.apiOption); // Featured
-const fetchNowPlaying = fetch('https://api.themoviedb.org/3/movie/popular' + TMDB.apiKey + TMDB.apiOption);
+const fetchNowPlaying = fetch('https://api.themoviedb.org/3/movie/popular' + TMDB.apiKey + TMDB.apiOption); // Get Movies to populate jumbotron carousel
 const fetchShowMovies = fetch('https://api.themoviedb.org/3/movie/now_playing' + TMDB.apiKey + TMDB.apiOption); // Shop Movies
 const fetchBigCard = fetch('https://api.themoviedb.org/3/movie/now_playing' + TMDB.apiKey + TMDB.apiOption); // Big Card
 
@@ -180,6 +180,7 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchNowPlaying, fetchSho
     // Transform rawFeaturedGenre into an Array of unique genre
     featuredGenre = Array.from([...new Set(rawFeaturedGenre)]);
 
+    // Build Jumbotron carousel slide
     nowTheatre.map(async (x, index) => {
         let tmp = carouselInnerHTMLcode;
         if (index == 0) tmp = tmp.replace(/_tmp/, 'active');;
@@ -191,7 +192,7 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchNowPlaying, fetchSho
         html_NowTheatre.insertAdjacentHTML('beforeend', tmp);
     });
 
-
+    // Get functions
     function getGenreName(movieGenreId) {
         return genreList.find(element => element.id == movieGenreId).name;
     }

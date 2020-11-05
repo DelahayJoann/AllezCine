@@ -31,21 +31,24 @@
   <!-- HEADER -->
   <header class="container-fluid" id="header">
 
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-sm navbar-light bg-light" id="navbar">
-      <a class="navbar-brand" href="#">ALLEZ CINE!</a>
-      <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
-        aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+  
+    <!-- JUMBOTRON -->
+    <div class="jumbotron jumbotron-fluid carousel slide mb-0" id="jumbotron" data-ride="carousel" data-interval="6000"
+      data-pause="false">
+      <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-sm navbar-light" id="navbar">
+      <a class="navbar-brand" href="#">ALLEZ<span id="whitespan">CINE!</span></a>
+      <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+          aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="collapsibleNavId">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <div class="collapse navbar-collapse row" id="collapsibleNavId">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0 d-flex col-sm-6">
           <li class="nav-item active">
             <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true"
-              aria-expanded="false">Genre</a>
+            <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Genre</a>
             <div class="dropdown-menu" aria-labelledby="dropdownId">
               <a class="dropdown-item" href="#">Action</a>
               <a class="dropdown-item" href="#">Comédie</a>
@@ -54,19 +57,15 @@
             </div>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#">Contact</a>
+            <a class="nav-link" href="#" id="navbarcontact">Contact</a>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <form class="form-inline my-2 my-lg-0 col-sm-6" id="navbarsearch">
+          <input class="form-control search_input" type="text" placeholder="Search...">
+          <a href="#" class="search_icon"><i class="fa fa-search" aria-hidden="true"></i></a>
         </form>
       </div>
     </nav>
-
-    <!-- JUMBOTRON -->
-    <div class="jumbotron jumbotron-fluid carousel slide mb-0" id="jumbotron" data-ride="carousel" data-interval="6000"
-      data-pause="false">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
