@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"> 
+<html lang="en">
 
 <head>
   <title>Title</title>
@@ -31,41 +31,42 @@
   <!-- HEADER -->
   <header class="container-fluid" id="header">
 
-  
+
     <!-- JUMBOTRON -->
     <div class="jumbotron jumbotron-fluid carousel slide mb-0" id="jumbotron" data-ride="carousel" data-interval="6000"
       data-pause="false">
       <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-sm navbar-light" id="navbar">
-      <a class="navbar-brand" href="#">ALLEZ<span id="whitespan">CINE!</span></a>
-      <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-          aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse row" id="collapsibleNavId">
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0 d-flex col-sm-6">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Genre</a>
-            <div class="dropdown-menu" aria-labelledby="dropdownId">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Comédie</a>
-              <a class="dropdown-item" href="#">Western</a>
-              <a class="dropdown-item" href="#">Fiction</a>
-            </div>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="#" id="navbarcontact">Contact</a>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0 col-sm-6" id="navbarsearch">
-          <input class="form-control search_input" type="text" placeholder="Search...">
-          <a href="#" class="search_icon"><i class="fa fa-search" aria-hidden="true"></i></a>
-        </form>
-      </div>
-    </nav>
+      <nav class="navbar navbar-expand-sm navbar-light" id="navbar">
+        <a class="navbar-brand" href="#">ALLEZ<span id="whitespan">CINE!</span></a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+          aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse row" id="collapsibleNavId">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0 d-flex col-sm-6">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">Genre</a>
+              <div class="dropdown-menu" aria-labelledby="dropdownId">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Comédie</a>
+                <a class="dropdown-item" href="#">Western</a>
+                <a class="dropdown-item" href="#">Fiction</a>
+              </div>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="#" id="navbarcontact">Contact</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0 col-sm-6" id="navbarsearch">
+            <input class="form-control search_input" type="text" placeholder="Search...">
+            <a href="#" class="search_icon"><i class="fa fa-search" aria-hidden="true"></i></a>
+          </form>
+        </div>
+      </nav>
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -210,8 +211,8 @@
         <div class="row">
           <div class="col-sm-12 d-flex justify-content-center">
             <div class="col-sm-6 content ">
-              <h2 class="text-uppercase d-flex justify-content-center">Subscribe to us</h2>
-              <div class="input-group">
+              <h2 id="jonCena" class="text-uppercase d-flex justify-content-center">Subscribe to us</h2>
+              <div id="footerInputGroup" class="input-group">
                 <input type="email" class="form-control" placeholder="Enter your email...">
                 <span class="input-group-btn">
                   <button class="btn btn-danger text-uppercase" type="submit">Subscribe</button>
@@ -221,10 +222,11 @@
           </div>
         </div>
       </section>
-      <section class="container-fluid">
+      <section id="yolo" class="container-fluid">
         <div class="row">
           <div class="col col1">
-            <h5>Release</h5>
+            <h5 class="footerTitles">Release</h5>
+            <hr class="linebreak">
             <ul class="list-unstyled">
               <li>
                 <a class="text-dark" href="#">2020</a>
@@ -247,7 +249,8 @@
             </ul>
           </div>
           <div class="col col2">
-            <h5>Movies</h5>
+            <h5 class="footerTitles">Movies</h5>
+            <hr class="linebreak">
             <ul class="list-unstyled">
               <li>
                 <a class="text-dark" href="#">Adventure</a>
@@ -270,51 +273,32 @@
             </ul>
           </div>
           <div class="col col3">
-            <h5>Review Movies</h5>
-            <button>Comedy</button>
-            <button>Horror</button>
-            <button>Historical</button>
-            <button>Romantic</button>
-            <button>Love</button>
-            <button>Action</button>
-            <button>Reviews</button>
-            <button>Comedy</button>
+            <h5 class="footerTitles">Review Movies</h5>
+            <hr class="linebreak">
+            <div id="footerButtons">
+              <button id="adv">Comedy</button>
+              <button>Horror</button>
+              <button>Historical</button>
+              <button>Romantic</button>
+              <button>Love</button>
+              <button>Action</button>
+              <button>Reviews</button>
+              <button>Comedy</button>
+            </div>
           </div>
           <div class="col col4">
-            <h5>Latest Movies</h5>
-            <div class="container">
-              <div class="row">
-                <div class="col-sm-5">IMG</div>
-                <div class="col-sm-7">Comment</div>
-              </div>
-              <div class="row">
-                <div class="col-sm-5">IMG</div>
-                <div class="col-sm-7">Comment</div>
-              </div>
-              <div class="row">
-                <div class="col-sm-5">IMG</div>
-                <div class="col-sm-7">Comment</div>
-              </div>
-              <div class="row">
-                <div class="col-sm-5">IMG</div>
-                <div class="col-sm-7">Comment</div>
-              </div>
+            <h5 class="footerTitles">Latest Movies</h5>
+            <hr class="linebreak">
+            <div id="latestMovies" class="container">
+
             </div>
           </div>
           <div class="col col5">
-            <h4>AllezCine!</h5>
-              <div class="container">
-                <div class="row">
-                  <div class="col-sm-4">Movie1</div>
-                  <div class="col-sm-4">Movie2</div>
-                  <div class="col-sm-4">Movie3</div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-4">Movie4</div>
-                  <div class="col-sm-4">Movie5</div>
-                  <div class="col-sm-4">Movie6</div>
-                </div>
-              </div>
+            <h5 class="footerTitles" id="hanSolo"><span id="ginger">Allez</span>Cine!</h5>
+            <hr class="linebreak">
+            <div class="container">
+              <div class="row" id="allezCine"></div>
+            </div>
           </div>
         </div>
       </section>
@@ -326,13 +310,24 @@
           <h3>Connect Us</h3>
         </div>
       </div>
-      <div class="row justify-content-center">
-        <button class="fa fa-facebook-f m-1" aria-hidden="true"></button>
-        <button class="fa fa-twitter m-1" aria-hidden="true"></button>
-        <button class="fa fa-linkedin m-1" aria-hidden="true"></button>
-        <button class="fa fa-youtube m-1" aria-hidden="true"></button>
-        <button class="fa fa-google-plus m-1" aria-hidden="true"></i></button>
+      <div class="" id="footerFun">
+        <a class="" href="https://twitter.com/?lang=en" target="_blank">
+          <i class="fa fa-twitter" aria-hidden="true"></i>
+        </a>
+        <a class="" href="https://www.facebook.com" target="_blank">
+          <i class="fa fa-facebook" aria-hidden="true"></i>
+        </a>
+        <a class="" href="https://www.linkedin.com/" target="_blank">
+          <i class="fa fa-linkedin" aria-hidden="true"></i>
+        </a>
+        <a class="" href="https://www.youtube.com/" target="_blank">
+          <i class="fa fa-youtube" aria-hidden="true"></i>
+        </a>
+        <a class="" href="https://www.blank.org/" target="_blank">
+          <i class=" fa fa-google-plus" aria-hidden="true"></i>
+        </a>
       </div>
+
     </section>
 
     </div>

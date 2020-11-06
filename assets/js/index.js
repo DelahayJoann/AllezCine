@@ -5,6 +5,8 @@ var featuredGenre;
 var nowTheatre;
 var shopMovies;
 var bigCard;
+var latestMovies;
+var allezCine;
 
 
 // Templates
@@ -68,7 +70,7 @@ var carouselInnerHTMLcode =
 
 var bigCardHTMLcode =
     `<figure class="figure justify-content-around row">
-<img src=_imgSrc class=""d-block img-fluid" col-12" alt="">
+<img src=_imgSrc class="d-block img-fluid" col-12" alt="">
 <figcaption class="figure-caption text-xs-right col-12 row">
   <div class="container">
     <div class="row">
@@ -96,7 +98,14 @@ var bigCardHTMLcode =
 </figcaption>
 </figure>`
 
+var latestMoviesHTMLcode =
+    `<div class="row" style="height:5rem;width:20rem;">
+        <img src= _imgSrc class="figure-img img-fluid col-5" alt="">
+        <div class="col-sm-7"> _title </div>
+</div>`;
 
+var allezCineHTMLcode =
+    `<img src= _imgSrc class="figure-img img-fluid col-4" alt="">`
 
 // Classes/Objects
 var TMDB = {
@@ -114,17 +123,20 @@ const fetchPopular = fetch('https://api.themoviedb.org/3/movie/popular' + TMDB.a
 const fetchNowPlaying = fetch('https://api.themoviedb.org/3/movie/popular' + TMDB.apiKey + TMDB.apiOption); // Get Movies to populate jumbotron carousel
 const fetchShowMovies = fetch('https://api.themoviedb.org/3/movie/now_playing' + TMDB.apiKey + TMDB.apiOption); // Shop Movies
 const fetchBigCard = fetch('https://api.themoviedb.org/3/movie/now_playing' + TMDB.apiKey + TMDB.apiOption); // Big Card
+const fetchLatestMovies = fetch('https://api.themoviedb.org/3/movie/popular' + TMDB.apiKey + TMDB.apiOption); // Latest Movies 
+const fetchAllezCine = fetch('https://api.themoviedb.org/3/movie/top_rated' + TMDB.apiKey + TMDB.apiOption); //allez cine 
 
-
-Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchNowPlaying, fetchShowMovies, fetchBigCard]).then(values => {
+Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchNowPlaying, fetchShowMovies, fetchBigCard, fetchLatestMovies, fetchAllezCine]).then(values => {
     return Promise.all(values.map(fetch => fetch.json()))
-}).then(([genres, topRated, popular, nowPlaying, showThem, card]) => {
+}).then(([genres, topRated, popular, nowPlaying, showThem, card, latest, allez]) => {
     genreList = genres.genres;
     highlighted = topRated.results.slice(0, 5);
     Featured = popular.results.slice(0, 12);
     nowTheatre = nowPlaying.results;
     shopMovies = showThem.results.slice(0, 8);
     bigCard = card.results.slice(0, 1);
+    latestMovies = latest.results.slice(0, 4);
+    allezCine = allez.results.slice(0, 6);
     //console.log(highlighted);
 
 
@@ -134,6 +146,8 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchNowPlaying, fetchSho
     var html_NowTheatre = document.getElementById('carouselInner');
     var html_shopMovies = document.getElementById('underShopMovies');
     var html_bigCard = document.getElementById("theBigCard");
+    var html_latestMovies = document.getElementById("latestMovies");
+    var html_allezCine = document.getElementById("allezCine");
 
     // Build Highlighted Cards
     highlighted.map((x) => {
@@ -190,6 +204,23 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchNowPlaying, fetchSho
         let a = await getTrailer(x.id);
         tmp = tmp.replace(/_href/, TMDB.youtubeBaseURL + a[0]);
         html_NowTheatre.insertAdjacentHTML('beforeend', tmp);
+    });
+
+    // *** Build Footer ***
+    // Latest Movies
+
+    latestMovies.map((x) => {
+        let tmp = latestMoviesHTMLcode;
+        // console.log(latestMoviesHTMLcode);
+        tmp = tmp.replace(/_title/, x.title);
+        tmp = tmp.replace(/_imgSrc/, TMDB.apiImageBaseURL + 'w300' + x.backdrop_path + TMDB.apiKey + TMDB.apiOption);
+        html_latestMovies.insertAdjacentHTML('beforeend', tmp);
+    });
+
+    allezCine.map((x) => {
+        let tmp = allezCineHTMLcode;
+        tmp = tmp.replace(/_imgSrc/, TMDB.apiImageBaseURL + 'w300' + x.poster_path + TMDB.apiKey + TMDB.apiOption);
+        html_allezCine.insertAdjacentHTML('beforeend', tmp);
     });
 
     // Get functions

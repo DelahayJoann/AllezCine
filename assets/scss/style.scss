@@ -8,6 +8,7 @@ $primary:#F94342;
    h1, h2, h3 {
       text-transform: uppercase;
       word-wrap: none;
+      color: #000;
    }
  }
 
@@ -143,13 +144,13 @@ a:link {
   z-index: 3;
   display:flex;
   flex-direction: column;
-  
+
   a {
     position: absolute;
     // color: red;
     height: 2.5rem;
-    width:25vw;
-    left: -22vw;
+    width:250px;
+    left: -220px;
     margin: 2px 0 2px 0;
     display: flex;
     justify-content: flex-end;
@@ -160,7 +161,7 @@ a:link {
     cursor: pointer;
     transition: all 500ms ease-in-out;
     &:hover {
-      left:-8vw;
+      left:-50px;
     }
     i {
       margin-right: 0.4em;
@@ -182,8 +183,72 @@ a:link {
     }
   }
 }
-// .envelope {
-//   position: inline-block;
-//   display: flex;
-//   flex-direction: row;
-// }
+
+
+// *** FOOTER ***
+
+footer {
+  background: black;
+    #jonCena {
+      color: $primary;
+    }
+    #yolo {
+      .footerTitles {
+        color: white;
+      }
+    }
+    #hanSolo {
+      font-size: 2em;
+      #ginger {
+        color: $primary;
+      }
+    }
+  }
+
+.linebreak {
+  background-color: #fff;
+  height: 0.1px;
+}
+
+#footerInputGroup {
+  margin-bottom: 1rem;
+  color: blue;
+}
+
+// Review Movies Buttons
+
+#footerButtons {
+  // display: flex;
+  // background-color: red;
+  button {
+    color:#fff;
+    background: rgba(132, 129, 129, 0.197);
+    border: none;
+    margin-bottom: 5px;
+  }
+}
+
+// Connect Us
+
+h3 {
+  color: #fff;
+}
+
+#footerFun {
+  display:flex;
+  justify-content: center;
+  gap: 1em;
+  a {
+    color: white;
+    margin-bottom: 0.5rem;
+    i {
+      width: 2rem;
+      height: 2rem;
+      border: 1px solid white;
+      display:flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
