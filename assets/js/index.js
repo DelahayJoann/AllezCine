@@ -5,6 +5,7 @@ var featuredGenre;
 var nowTheatre;
 var shopMovies;
 var bigCard;
+var FeaturedDisplayed = 12;
 
 
 // Templates
@@ -33,6 +34,7 @@ var featuredMovieCardHTMLcode =
         <figcaption class="figure-caption text-xs-right col-12 row">
             <p class="card-title col-12"> _title </p>
             <p class="card-text col-6 m-0 p-0" id="highlightYear"> _year </p>
+            <p class="card-text col-6 m-0 p-0 text-right" id="highlightGenre" style="display: none;"> _genre </p>
         </figcaption>
         </figure> 
     </div>
@@ -68,7 +70,7 @@ var carouselInnerHTMLcode =
 
 var bigCardHTMLcode =
     `<figure class="figure justify-content-around row">
-<img src=_imgSrc class=""d-block img-fluid" col-12" alt="">
+<img src=_imgSrc class="d-block img-fluid" col-12" alt="">
 <figcaption class="figure-caption text-xs-right col-12 row">
   <div class="container">
     <div class="row">
@@ -111,17 +113,25 @@ var TMDB = {
 const fetchGenres = fetch('https://api.themoviedb.org/3/genre/movie/list' + TMDB.apiKey + TMDB.apiOption);  // Get all Genres with their id
 const fetchTopRated = fetch('https://api.themoviedb.org/3/movie/top_rated' + TMDB.apiKey + TMDB.apiOption); // Highlighted
 const fetchPopular = fetch('https://api.themoviedb.org/3/movie/popular' + TMDB.apiKey + TMDB.apiOption); // Featured
+const fetchPopular2 = fetch('https://api.themoviedb.org/3/movie/popular' + TMDB.apiKey + TMDB.apiOption+'&page=2'); //more Featured
+const fetchPopular3 = fetch('https://api.themoviedb.org/3/movie/popular' + TMDB.apiKey + TMDB.apiOption+'&page=3'); //more Featured
+const fetchPopular4 = fetch('https://api.themoviedb.org/3/movie/popular' + TMDB.apiKey + TMDB.apiOption+'&page=4'); //more Featured
+const fetchPopular5 = fetch('https://api.themoviedb.org/3/movie/popular' + TMDB.apiKey + TMDB.apiOption+'&page=5'); //more Featured
 const fetchNowPlaying = fetch('https://api.themoviedb.org/3/movie/popular' + TMDB.apiKey + TMDB.apiOption); // Get Movies to populate jumbotron carousel
 const fetchShowMovies = fetch('https://api.themoviedb.org/3/movie/now_playing' + TMDB.apiKey + TMDB.apiOption); // Shop Movies
 const fetchBigCard = fetch('https://api.themoviedb.org/3/movie/now_playing' + TMDB.apiKey + TMDB.apiOption); // Big Card
 
 
-Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchNowPlaying, fetchShowMovies, fetchBigCard]).then(values => {
+Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchPopular2, fetchPopular3, fetchPopular4, fetchPopular5, fetchNowPlaying, fetchShowMovies, fetchBigCard]).then(values => {
     return Promise.all(values.map(fetch => fetch.json()))
-}).then(([genres, topRated, popular, nowPlaying, showThem, card]) => {
+}).then(([genres, topRated, popular, popular2, popular3, popular4, popular5, nowPlaying, showThem, card]) => {
     genreList = genres.genres;
     highlighted = topRated.results.slice(0, 5);
-    Featured = popular.results.slice(0, 12);
+    Featured = popular.results
+    Featured = Featured.concat(popular2.results);
+    Featured = Featured.concat(popular3.results);
+    Featured = Featured.concat(popular4.results);
+    Featured = Featured.concat(popular5.results);
     nowTheatre = nowPlaying.results;
     shopMovies = showThem.results.slice(0, 8);
     bigCard = card.results.slice(0, 1);
@@ -129,8 +139,9 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchNowPlaying, fetchSho
 
 
     // HTML Selection
-    var html_highlightedMovies = document.getElementById('highlightedMoviesRow');
-    var html_featuredMovies = document.getElementById('featuredMoviesRow');
+    var html_highlightedMoviesRow = document.getElementById('highlightedMoviesRow');
+    var html_featuredMoviesRow = document.getElementById('featuredMoviesRow');
+    var html_featuredMoviesH3 = document.querySelector('#featuredMovies h3');
     var html_NowTheatre = document.getElementById('carouselInner');
     var html_shopMovies = document.getElementById('underShopMovies');
     var html_bigCard = document.getElementById("theBigCard");
@@ -142,7 +153,7 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchNowPlaying, fetchSho
         tmp = tmp.replace(/_year/, x.release_date.substring(0, x.release_date.indexOf('-')));
         tmp = tmp.replace(/_genre/, getGenreName(x.genre_ids[0]));
         tmp = tmp.replace(/_imgSrc/, TMDB.apiImageBaseURL + 'w300' + x.poster_path + TMDB.apiKey + TMDB.apiOption);
-        html_highlightedMovies.insertAdjacentHTML('beforeend', tmp);
+        html_highlightedMoviesRow.insertAdjacentHTML('beforeend', tmp);
     });
 
     // Array to collect all unfiltered movie genres
@@ -154,9 +165,49 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchNowPlaying, fetchSho
         let tmp = featuredMovieCardHTMLcode;
         tmp = tmp.replace(/_title/, x.title);
         tmp = tmp.replace(/_year/, x.release_date.substring(0, x.release_date.indexOf('-')));
+        tmp = tmp.replace(/_genre/, getGenreName(x.genre_ids[0]));
         tmp = tmp.replace(/_imgSrc/, TMDB.apiImageBaseURL + 'w300' + x.poster_path + TMDB.apiKey + TMDB.apiOption);
-        html_featuredMovies.insertAdjacentHTML('beforeend', tmp);
+        html_featuredMoviesRow.insertAdjacentHTML('beforeend', tmp);
     });
+
+    // Transform rawFeaturedGenre into an Array of unique genre
+    featuredGenre = Array.from([...new Set(rawFeaturedGenre)]);
+
+    // Featured Movies Genre Filter
+    let genreFilterDiv = document.createElement('div');
+    genreFilterDiv.setAttribute('class','row');
+    let tmpDiv = document.createElement('div');
+        tmpDiv.innerHTML = 'ALL';
+        tmpDiv.setAttribute('class','btn btn-danger ALL');
+        genreFilterDiv.appendChild(tmpDiv);
+
+    featuredGenre.forEach((elem)=>{
+        let tmpDiv = document.createElement('div');
+        tmpDiv.innerHTML = elem;
+        tmpDiv.setAttribute('class','btn btn-danger');
+        genreFilterDiv.appendChild(tmpDiv);
+    });
+    html_featuredMoviesH3.parentNode.insertBefore(genreFilterDiv, html_featuredMoviesH3.nextSibling);
+
+    // Click Genre Filter
+    
+
+    document.querySelectorAll('#featuredMovies .btn').forEach((button)=>{
+        button.addEventListener('click', function(event){
+            let count = 0;
+            document.querySelectorAll('#featuredMovies .card').forEach((card, index) =>{
+                if(event.target.innerHTML.trim() == 'ALL' && index < FeaturedDisplayed){card.parentNode.style.display="block";}
+                else if(card.querySelector('#highlightGenre').innerHTML.trim() != event.target.innerHTML.trim()){card.parentNode.style.display="none";}
+                else if(count < FeaturedDisplayed){card.parentNode.style.display="block"; count++;}
+            });
+        });
+    });
+
+    // Button More/Less
+    let event = new Event('click');
+    document.getElementsByClassName('ALL')[0].dispatchEvent(event);
+
+
 
     // Build Shop Movies Cards
     shopMovies.map((x) => {
@@ -173,12 +224,10 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchNowPlaying, fetchSho
         tmp = tmp.replace(/_title/, x.title);
         tmp = tmp.replace(/_summary/, x.overview);
         tmp = tmp.replace(/_year/, x.release_date.substring(0, x.release_date.indexOf('-')));
+        tmp = tmp.replace(/_genre/, getGenreName(x.genre_ids[0]));
         tmp = tmp.replace(/_imgSrc/, TMDB.apiImageBaseURL + 'w500' + x.poster_path + TMDB.apiKey + TMDB.apiOption);
         html_bigCard.insertAdjacentHTML('beforeend', tmp);
     });
-
-    // Transform rawFeaturedGenre into an Array of unique genre
-    featuredGenre = Array.from([...new Set(rawFeaturedGenre)]);
 
     // Build Jumbotron carousel slide
     nowTheatre.map(async (x, index) => {
