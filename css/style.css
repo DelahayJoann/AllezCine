@@ -1,12 +1,11 @@
-body {
-  max-width: 95%;
-  margin: 0px auto;
-}
-
 body h1, body h2, body h3 {
   text-transform: uppercase;
   word-wrap: none;
   color: #000;
+}
+body header.container-fluid {
+  margin: 0;
+  padding: 0;
 }
 
 a:link {
@@ -39,7 +38,12 @@ a:link {
   width: 100%;
   font-weight: bold;
 }
-
+#jumbotron #navbar .navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.8);
+}
+#jumbotron #navbar .navbar-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
 #jumbotron #navbar .navbar-brand {
   color: #db5252;
   font-size: 48px;
@@ -126,7 +130,30 @@ a:link {
 }
 
 #jumbobottomnavbar {
-  background-color: #db5252;
+  background-color: #F94342;
+}
+
+#LoginForm .form-elegant .font-small, #RegisterForm .form-elegant .font-small {
+  font-size: 0.8rem;
+}
+#LoginForm .form-elegant .z-depth-1a, #RegisterForm .form-elegant .z-depth-1a {
+  -webkit-box-shadow: 0 2px 5px 0 rgba(55, 161, 255, 0.26), 0 4px 12px 0 rgba(121, 155, 254, 0.25);
+  box-shadow: 0 2px 5px 0 rgba(55, 161, 255, 0.26), 0 4px 12px 0 rgba(121, 155, 254, 0.25);
+}
+#LoginForm .form-elegant .z-depth-1-half,
+#LoginForm .form-elegant .btn:hover, #RegisterForm .form-elegant .z-depth-1-half,
+#RegisterForm .form-elegant .btn:hover {
+  -webkit-box-shadow: 0 5px 11px 0 rgba(85, 182, 255, 0.28), 0 4px 15px 0 rgba(36, 133, 255, 0.15);
+  box-shadow: 0 5px 11px 0 rgba(85, 182, 255, 0.28), 0 4px 15px 0 rgba(36, 133, 255, 0.15);
+}
+#LoginForm .form-elegant .modal-header, #RegisterForm .form-elegant .modal-header {
+  border-bottom: none;
+}
+#LoginForm .modal-dialog .form-elegant .btn .fab, #RegisterForm .modal-dialog .form-elegant .btn .fab {
+  color: #2196f3 !important;
+}
+#LoginForm .form-elegant .modal-body, #LoginForm .form-elegant .modal-footer, #RegisterForm .form-elegant .modal-body, #RegisterForm .form-elegant .modal-footer {
+  font-weight: 400;
 }
 
 #highlightedMovies #highlightCard .card-title {
@@ -140,23 +167,44 @@ a:link {
   line-height: 30px;
 }
 
-.facebook {
-  background-color: #3b5998;
-  top: 2.7rem;
-}
-
 .twitter {
   background-color: #4099FF;
+  top: 5rem;
+}
+@media (max-width: 576px) {
+  .twitter {
+    visibility: hidden;
+  }
 }
 
-.google {
-  background-color: #DD4B39;
-  top: 8.1rem;
+.facebook {
+  background-color: #3b5998;
+  top: 7.7rem;
+}
+@media (max-width: 576px) {
+  .facebook {
+    visibility: hidden;
+  }
 }
 
 .youtube {
   background-color: #E52D27;
-  top: 5.4rem;
+  top: 10.4rem;
+}
+@media (max-width: 576px) {
+  .youtube {
+    visibility: hidden;
+  }
+}
+
+.google {
+  background-color: #DD4B39;
+  top: 13.1rem;
+}
+@media (max-width: 576px) {
+  .google {
+    visibility: hidden;
+  }
 }
 
 .sidebar {
@@ -176,7 +224,7 @@ a:link {
   position: absolute;
   height: 2.5rem;
   width: 250px;
-  left: -220px;
+  left: -210px;
   margin: 2px 0 2px 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -199,7 +247,7 @@ a:link {
 }
 
 .sidebar a:hover {
-  left: -50px;
+  left: -100px;
 }
 
 .sidebar a i {
