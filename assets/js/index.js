@@ -187,40 +187,63 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchPopular2, fetchPopul
 
     // Transform rawFeaturedGenre into an Array of unique genre
     featuredGenre = Array.from([...new Set(rawFeaturedGenre)]);
+    featuredGenre = featuredGenre.sort();
 
     // Featured Movies Genre Filter
     let genreFilterDiv = document.createElement('div');
     genreFilterDiv.setAttribute('class','row');
     let tmpDiv = document.createElement('div');
         tmpDiv.innerHTML = 'ALL';
-        tmpDiv.setAttribute('class','btn btn-danger ALL');
+        tmpDiv.setAttribute('class','btn btn-danger');
+        tmpDiv.id = 'ALL';
         genreFilterDiv.appendChild(tmpDiv);
 
     featuredGenre.forEach((elem)=>{
         let tmpDiv = document.createElement('div');
         tmpDiv.innerHTML = elem;
         tmpDiv.setAttribute('class','btn btn-danger');
+        tmpDiv.id = elem;
         genreFilterDiv.appendChild(tmpDiv);
     });
     html_featuredMoviesH3.parentNode.insertBefore(genreFilterDiv, html_featuredMoviesH3.nextSibling);
 
-    // Click Genre Filter
-    
+    let currentFilter = 'ALL';
 
+    // Click Genre Filter
     document.querySelectorAll('#featuredMovies .btn').forEach((button)=>{
         button.addEventListener('click', function(event){
             let count = 0;
+            if(event.target.innerHTML != currentFilter)document.getElementById('moreless').innerHTML = 'More';
+            currentFilter = event.target.id;
             document.querySelectorAll('#featuredMovies .card').forEach((card, index) =>{
-                if(event.target.innerHTML.trim() == 'ALL' && index < FeaturedDisplayed){card.parentNode.style.display="block";}
+                if(event.target.innerHTML.trim() == 'ALL' && index < FeaturedDisplayed){card.parentNode.style.display="block"; count = Featured.length;}
                 else if(card.querySelector('#highlightGenre').innerHTML.trim() != event.target.innerHTML.trim()){card.parentNode.style.display="none";}
                 else if(count < FeaturedDisplayed){card.parentNode.style.display="block"; count++;}
+                else{card.parentNode.style.display="none";}
+
+                if(count < 12){document.getElementById('moreless').style.display = 'none';}
+                else{document.getElementById('moreless').style.display = 'block';}
             });
+            
         });
     });
 
     // Button More/Less
+    document.getElementById('moreless').addEventListener('click', function(event){
+        if(FeaturedDisplayed < Featured.length){
+            FeaturedDisplayed += 1000;
+            event.target.innerHTML = 'Less';
+        }
+        else{
+            event.target.innerHTML = 'More';
+            FeaturedDisplayed -= 1000;
+        }
+        let eventFilter = new Event('click');
+        document.getElementById(currentFilter).dispatchEvent(eventFilter);
+    });
+
     let event = new Event('click');
-    document.getElementsByClassName('ALL')[0].dispatchEvent(event);
+    document.getElementById('ALL').dispatchEvent(event);
 
 
 
