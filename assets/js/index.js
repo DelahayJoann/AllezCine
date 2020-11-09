@@ -12,8 +12,7 @@ var FeaturedDisplayed = 12;
 
 // Templates
 
-var highlightedMovieCardHTMLcode =
-    `<div class="col-lg-2">
+var highlightedMovieCardHTMLcode =`<div class="col-lg-2">
     <div class="card border-0" id="highlightCard">
     <div class="card-body">
         <figure class="figure justify-content-around row">
@@ -22,14 +21,13 @@ var highlightedMovieCardHTMLcode =
             <p class="card-title col-12"> _title </p>
             <p class="card-text col-6 m-0 p-0 text-left" id="highlightYear"> _year </p>
             <p class="card-text col-6 m-0 p-0 text-right" id="highlightGenre"> _genre </p>
-            <p class="d-none"></p>
+            <p class="d-none" id="movieId"> _movieid </p>
         </figcaption>
         </figure> 
     </div>
     </div>
 </div>`;
-var featuredMovieCardHTMLcode =
-    `<div class="col-lg-2">
+var featuredMovieCardHTMLcode =`<div class="col-lg-2">
     <div class="card border-0" id="highlightCard">
     <div class="card-body">
         <figure class="figure justify-content-around row">
@@ -38,14 +36,14 @@ var featuredMovieCardHTMLcode =
             <p class="card-title col-12"> _title </p>
             <p class="card-text col-6 m-0 p-0" id="highlightYear"> _year </p>
             <p class="card-text col-6 m-0 p-0 text-right" id="highlightGenre" style="display: none;"> _genre </p>
+            <p class="d-none" id="movieId"> _movieid </p>
         </figcaption>
         </figure> 
     </div>
     </div>
 </div>`;
 
-var shopMoviesCardHTMLcode =
-    `<div class="col-lg-3">
+var shopMoviesCardHTMLcode =`<div class="col-lg-3">
     <div class="card border-0" id="highlightCard">
     <div class="card-body">
         <figure class="figure justify-content-around row">
@@ -53,17 +51,17 @@ var shopMoviesCardHTMLcode =
         <figcaption class="figure-caption text-xs-right col-12 row">
             <p class="card-title col-12"> _title </p>
             <p class="card-text col-6 m-0 p-0" id="highlightYear"> _year </p>
+            <p class="d-none" id="movieId"> _movieid </p>
         </figcaption>
         </figure> 
     </div>
     </div>
 </div>`;
 
-var carouselInnerHTMLcode =
-    `<div class="carousel-item _tmp " style="max-height: 768px;">
+var carouselInnerHTMLcode =`<div class="carousel-item _tmp " style="max-height: 768px;">
 <img class="d-block img-fluid" src= _imgSrc alt="First slide">
 <div class="carousel-caption d-none d-md-block mb-3">
-  <h1 class="display-3">LATEST ONLINE MOVIES</h1>
+  <h1 class="display-3"><span class="whitespan">LATEST</span> ON<span class="whitespan">LINE</span> MO<span class="whitespan">VIES</span></h1>
   <p class="lead"> _title </p>
   <hr class="my-2">
   <p class="lead">
@@ -71,8 +69,7 @@ var carouselInnerHTMLcode =
   </p>
 </div>`;
 
-var bigCardHTMLcode =
-    `<figure class="figure justify-content-around row">
+var bigCardHTMLcode =`<div><figure class="figure justify-content-around row">
 <img src=_imgSrc class="d-block img-fluid" col-12" alt="">
 <figcaption class="figure-caption text-xs-right col-12 row">
   <div class="container">
@@ -99,7 +96,7 @@ var bigCardHTMLcode =
     </div>
   </div>
 </figcaption>
-</figure>`
+</figure></div>`
 
 var latestMoviesHTMLcode =
     `<div class="row" style="height:5rem;width:20rem;">
@@ -160,6 +157,7 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchPopular2, fetchPopul
     var html_bigCard = document.getElementById("theBigCard");
     var html_latestMovies = document.getElementById("latestMovies");
     var html_allezCine = document.getElementById("allezCine");
+    var html_modalMovieDetails = document.getElementById("momdalMovieDetailsBody");
 
     // Build Highlighted Cards
     highlighted.map((x) => {
@@ -167,6 +165,7 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchPopular2, fetchPopul
         tmp = tmp.replace(/_title/, x.title);
         tmp = tmp.replace(/_year/, x.release_date.substring(0, x.release_date.indexOf('-')));
         tmp = tmp.replace(/_genre/, getGenreName(x.genre_ids[0]));
+        tmp = tmp.replace(/_movieid/, x.id);
         tmp = tmp.replace(/_imgSrc/, TMDB.apiImageBaseURL + 'w300' + x.poster_path + TMDB.apiKey + TMDB.apiOption);
         html_highlightedMoviesRow.insertAdjacentHTML('beforeend', tmp);
     });
@@ -181,6 +180,7 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchPopular2, fetchPopul
         tmp = tmp.replace(/_title/, x.title);
         tmp = tmp.replace(/_year/, x.release_date.substring(0, x.release_date.indexOf('-')));
         tmp = tmp.replace(/_genre/, getGenreName(x.genre_ids[0]));
+        tmp = tmp.replace(/_movieid/, x.id);
         tmp = tmp.replace(/_imgSrc/, TMDB.apiImageBaseURL + 'w300' + x.poster_path + TMDB.apiKey + TMDB.apiOption);
         html_featuredMoviesRow.insertAdjacentHTML('beforeend', tmp);
     });
@@ -204,12 +204,17 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchPopular2, fetchPopul
         tmpDiv.setAttribute('class','btn btn-danger');
         tmpDiv.id = elem;
         genreFilterDiv.appendChild(tmpDiv);
+        document.getElementById('navDropdown').insertAdjacentHTML('beforeend','<a class="dropdown-item" href="#featuredMovies">'+elem+'</a>');
+        document.getElementById('navDropdown').lastChild.addEventListener('click', function(event){
+            let eventDropdown = new Event('click');
+            document.getElementById(this.innerHTML.trim()).dispatchEvent(eventDropdown);
+        });
     });
     html_featuredMoviesH3.parentNode.insertBefore(genreFilterDiv, html_featuredMoviesH3.nextSibling);
 
     let currentFilter = 'ALL';
 
-    // Click Genre Filter
+    // Click Featured Genre Filter
     document.querySelectorAll('#featuredMovies .btn').forEach((button)=>{
         button.addEventListener('click', function(event){
             let count = 0;
@@ -240,11 +245,11 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchPopular2, fetchPopul
         }
         let eventFilter = new Event('click');
         document.getElementById(currentFilter).dispatchEvent(eventFilter);
+        document.getElementById(currentFilter).scrollIntoView();
     });
 
     let event = new Event('click');
     document.getElementById('ALL').dispatchEvent(event);
-
 
 
     // Build Shop Movies Cards
@@ -252,8 +257,15 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchPopular2, fetchPopul
         let tmp = shopMoviesCardHTMLcode;
         tmp = tmp.replace(/_title/, x.title);
         tmp = tmp.replace(/_year/, x.release_date.substring(0, x.release_date.indexOf('-')));
+        tmp = tmp.replace(/_movieid/, x.id);
         tmp = tmp.replace(/_imgSrc/, TMDB.apiImageBaseURL + 'w300' + x.poster_path + TMDB.apiKey + TMDB.apiOption);
         html_shopMovies.insertAdjacentHTML('beforeend', tmp);
+    });
+
+    html_shopMovies.querySelectorAll('.card').forEach((card)=>{
+        card.addEventListener('click', function(event){
+                bigCardDetails(this);
+            });
     });
 
     // Build Big Card
@@ -296,6 +308,10 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchPopular2, fetchPopul
         html_allezCine.insertAdjacentHTML('beforeend', tmp);
     });
 
+     // Add Eventlisteners to open details modal
+     modalDetails(html_highlightedMoviesRow);
+     modalDetails(html_featuredMoviesRow);
+
     // Get functions
     function getGenreName(movieGenreId) {
         return genreList.find(element => element.id == movieGenreId).name;
@@ -310,5 +326,46 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchPopular2, fetchPopul
         throw new Error(res.status);
     }
 
-});
+    function modalDetails(htmlContainerWithCards){
+        // Add Eventlisteners to open details modal of Highlited cards
+        htmlContainerWithCards.querySelectorAll('.card').forEach((card)=>{
+            card.addEventListener('click', function(event){
+                //console.log(this.querySelector('#movieId').innerHTML.trim());
 
+                const movieDetails = fetch('https://api.themoviedb.org/3/movie/'+this.querySelector('#movieId').innerHTML.trim()+ TMDB.apiKey + TMDB.apiOption);
+                
+                Promise.all([movieDetails]).then((values)=>{
+                    return Promise.all(values.map(fetch => fetch.json()))
+                }).then(([x])=>{
+                    if(html_modalMovieDetails.firstChild)html_modalMovieDetails.removeChild(html_modalMovieDetails.firstChild);
+                    let tmp = bigCardHTMLcode;
+                    tmp = tmp.replace(/_title/, x.title);
+                    tmp = tmp.replace(/_summary/, x.overview);
+                    tmp = tmp.replace(/_year/, x.release_date.substring(0, x.release_date.indexOf('-')));
+                    tmp = tmp.replace(/_genre/, x.genres[0].name);
+                    tmp = tmp.replace(/_imgSrc/, TMDB.apiImageBaseURL + 'w500' + x.poster_path + TMDB.apiKey + TMDB.apiOption);
+                    html_modalMovieDetails.insertAdjacentHTML('beforeend', tmp);
+                    $('#modalMovieDetails').modal('show');
+                });
+            });
+        });
+    }
+
+    // Function to populate BigCard in Shop section (bigCardDetails(card);)
+    function bigCardDetails(card){
+        const bigCardDetails = fetch('https://api.themoviedb.org/3/movie/'+card.querySelector('#movieId').innerHTML.trim()+ TMDB.apiKey + TMDB.apiOption);
+        
+        Promise.all([bigCardDetails]).then((values)=>{
+            return Promise.all(values.map(fetch => fetch.json()))
+        }).then(([x])=>{
+            html_bigCard.innerHTML = '';
+            let tmp = bigCardHTMLcode;
+            tmp = tmp.replace(/_title/, x.title);
+            tmp = tmp.replace(/_summary/, x.overview);
+            tmp = tmp.replace(/_year/, x.release_date.substring(0, x.release_date.indexOf('-')));
+            tmp = tmp.replace(/_genre/, x.genres[0].name);
+            tmp = tmp.replace(/_imgSrc/, TMDB.apiImageBaseURL + 'w500' + x.poster_path + TMDB.apiKey + TMDB.apiOption);
+            html_bigCard.insertAdjacentHTML('beforeend', tmp);
+        });
+    }
+});

@@ -18,6 +18,23 @@ a:link {
   background-color: rgba(0, 0, 0, 0);
   position: relative;
 }
+#jumbotron img {
+  filter: contrast(60%);
+}
+#jumbotron .whitespan {
+  color: white;
+}
+#jumbotron .display-3 {
+  color: #F94342;
+  font-weight: bold;
+}
+#jumbotron .lead {
+  font-weight: bold;
+  font-size: 2rem;
+}
+#jumbotron .carousel-inner {
+  z-index: 1;
+}
 @media (max-width: 576px) {
   #jumbotron .carousel-indicators {
     visibility: hidden;
@@ -48,7 +65,7 @@ a:link {
   color: white;
 }
 #jumbotron #navbar .navbar-collapse {
-  background-color: #554b4b;
+  background-color: rgba(85, 75, 75, 0.7);
   padding: 0px 15px;
   z-index: 4;
 }
@@ -56,6 +73,19 @@ a:link {
   #jumbotron #navbar .navbar-collapse {
     background-color: rgba(0, 0, 0, 0);
   }
+}
+#jumbotron #navbar .navbar-collapse .dropdown .dropdown-menu {
+  background-color: rgba(85, 75, 75, 0.7);
+}
+#jumbotron #navbar .navbar-collapse .dropdown .dropdown-menu .dropdown-item {
+  color: white;
+  z-index: 3;
+}
+#jumbotron #navbar .navbar-collapse .dropdown .dropdown-menu .dropdown-item:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+#jumbotron #navbar .navbar-collapse .nav-item {
+  font-size: 1.3rem;
 }
 #jumbotron #navbar .nav-link {
   color: #db5252;
@@ -99,6 +129,10 @@ a:link {
 
 #jumbobottomnavbar {
   background-color: #F94342;
+}
+#jumbobottomnavbar .navbar-nav #phoneNumber {
+  margin: 0px 20px;
+  font-size: 1.3rem;
 }
 
 #LoginForm .form-elegant .font-small, #RegisterForm .form-elegant .font-small {

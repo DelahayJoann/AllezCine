@@ -37,7 +37,7 @@
       data-pause="false">
       <!-- NAVBAR -->
       <nav class="navbar navbar-expand-sm navbar-light" id="navbar">
-        <a class="navbar-brand" href="#">ALLEZ<span id="whitespan">CINE!</span></a>
+        <a class="navbar-brand" href="#">ALLEZ<span class="whitespan">CINE!</span></a>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
           aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -50,11 +50,7 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-toggle="dropdown" aria-haspopup="true"
                 aria-expanded="false">Genre</a>
-              <div class="dropdown-menu" aria-labelledby="dropdownId">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Comédie</a>
-                <a class="dropdown-item" href="#">Western</a>
-                <a class="dropdown-item" href="#">Fiction</a>
+              <div class="dropdown-menu" aria-labelledby="dropdownId" id="navDropdown">
               </div>
             </li>
             <li class="nav-item active">
@@ -203,7 +199,7 @@
     <!-- BOTTOM NAVBAR -->
     <nav class="navbar navbar-expand navbar-light" id="jumbobottomnavbar">
       <div class="nav navbar-nav">
-        <p><i class="fa fa-phone" aria-hidden="true"></i>+3248252456</p>
+        <p id="phoneNumber"><i class="fa fa-phone" aria-hidden="true"></i>+3248252456</p>
         <a class="btn btn-dark ml-2" data-toggle="modal" data-target="#LoginForm" href="#">Login</a>
         <a class="btn btn-dark ml-2" data-toggle="modal" data-target="#RegisterForm" href="#">Register</a>
       </div>
@@ -237,6 +233,29 @@
     </div>
   </div>
 
+  <!-- Modal Movie Details-->
+  <div class="modal fade" id="modalMovieDetails" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <!--Content-->
+      <div class="modal-content form-elegant">
+        <!--Header-->
+        <div class="modal-header text-center">
+          <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong> Details </strong></h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <!--Body-->
+        <div class="modal-body mx-4" id="momdalMovieDetailsBody"></div>
+        <!--Footer-->
+        <div class="modal-footer mx-5 pt-3 mb-1">
+          <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      <!--/.Content-->
+    </div>
+  </div>
+
 
   <!-- HIGHLITED MOVIES -->
   <section class="container" id="highlightedMovies">
@@ -262,11 +281,8 @@
 
       </div>
       <div class="col-4">
-        <!-- Modal -->
-
         <div class="card" id="highlightCard">
           <div class="card-body" id="theBigCard">
-
           </div>
         </div>
       </div>

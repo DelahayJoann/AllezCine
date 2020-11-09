@@ -30,6 +30,25 @@ a:link {
     background-color: rgba(0, 0, 0, 0);
     position: relative;
 
+    img{
+      filter: contrast(60%);
+    }
+
+    .whitespan{
+      color: white;
+    }
+    .display-3{
+      color: $primary;
+      font-weight: bold;
+    }
+    .lead{
+      font-weight: bold;
+      font-size: 2rem;
+    }
+    .carousel-inner{
+      z-index: 1;
+    }
+
     .carousel-indicators{
       @media (max-width: 576px) { visibility: hidden; }
     }
@@ -57,16 +76,29 @@ a:link {
       .navbar-brand{
         color: rgb(219, 82, 82);
         font-size: 48px;
-
-        #whitespan{
-          color: white;
-        }
       }
       .navbar-collapse{
-        background-color: rgb(85, 75, 75);
+        background-color: rgba(85, 75, 75, 0.7);
         @media (min-width: 576px) { background-color: rgba(0, 0, 0, 0); }
         padding: 0px 15px;
         z-index: 4;
+
+          .dropdown{
+            .dropdown-menu{
+              background-color: rgba(85, 75, 75, 0.7);
+              .dropdown-item{
+                color: white;
+                z-index: 3;
+              }
+              .dropdown-item:hover{
+                background-color: rgba(0, 0, 0,0.5);
+              }
+            }
+          }
+
+          .nav-item{
+            font-size: 1.3rem;
+          }
       }
       .nav-link{
         color:  rgb(219, 82, 82);
@@ -110,6 +142,12 @@ a:link {
 
   #jumbobottomnavbar{
     background-color: $primary;
+    .navbar-nav{
+      #phoneNumber{
+        margin: 0px 20px;
+        font-size: 1.3rem;
+      }
+    }
   }
 
 
