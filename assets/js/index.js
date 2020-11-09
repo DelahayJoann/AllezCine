@@ -291,6 +291,10 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchPopular2, fetchPopul
         let a = await getTrailer(x.id);
         tmp = tmp.replace(/_href/, TMDB.youtubeBaseURL + a[0]);
         html_NowTheatre.insertAdjacentHTML('beforeend', tmp);
+        let indic;
+        if(index == 0){indic = '<li data-target="#carouselExampleIndicators" class="active" data-slide-to="'+index+'"></li>';}
+        else {indic ='<li data-target="#carouselExampleIndicators" data-slide-to="'+index+'"></li>';}
+        document.getElementsByClassName('carousel-indicators')[0].insertAdjacentHTML('beforeend', indic);
     });
 
     // *** Build Footer ***
