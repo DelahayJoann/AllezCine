@@ -7,16 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
-  <script src="./assets/js/index.js"></script>
+
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -78,74 +69,15 @@
     </div>
 
     <!-- Modal Login-->
-    <div class="modal fade" id="LoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <!--Content-->
-      <div class="modal-content form-elegant">
-        <!--Header-->
-        <div class="modal-header text-center">
-          <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>Sign in</strong></h3>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <!--Body-->
-        <div class="modal-body mx-4">
-          <!--Body-->
-          <div class="md-form mb-5">
-            <input type="email" id="Form-email1" class="form-control validate">
-            <label data-error="wrong" data-success="right" for="Form-email1">Your email</label>
-          </div>
-
-          <div class="md-form pb-3">
-            <input type="password" id="Form-pass1" class="form-control validate">
-            <label data-error="wrong" data-success="right" for="Form-pass1">Your password</label>
-            <div class="form-group mt-4">
-              <input class="form-check-input" type="checkbox" id="checkbox624">
-              <label for="checkbox624" class="white-text form-check-label">Stay connected</label>
-            </div>
-            <p class="font-small blue-text d-flex justify-content-end">Forgot <a href="#" class="blue-text ml-1">Password?</a></p>
-          </div>
-
-          <div class="text-center mb-3">
-            <button type="button" class="btn blue-gradient btn-block btn-rounded z-depth-1a">Sign in</button>
-          </div>
-          <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign in with:</p>
-
-          <div class="row my-3 d-flex justify-content-center">
-            <!--Facebook-->
-            <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i class="fa fa-facebook" aria-hidden="true"></i></button>
-            <!--Twitter-->
-            <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i class="fa fa-twitter" aria-hidden="true"></i></button>
-            <!--Google +-->
-            <button type="button" class="btn btn-white btn-rounded z-depth-1a"><i class="fa fa-google-plus" aria-hidden="true"></i></button>
-          </div>
-        </div>
-        <!--Footer-->
-        <div class="modal-footer mx-5 pt-3 mb-1">
-          <p class="font-small grey-text d-flex justify-content-end">Not a member? <a href="#sign_up" class="blue-text ml-1">Register</a></p>
-          <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      <!--/.Content-->
-    </div>
-    </div>
-    <script>
-      $('a[href="#sign_up"]').click(function(){
-        $('#LoginForm').modal('hide');
-        $('#RegisterForm').modal('show');
-      })
-    </script>
-    <!-- Modal -->
-
-    <!-- Modal Register-->
-    <div class="modal fade" id="RegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="LoginForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+      aria-hidden="true">
       <div class="modal-dialog" role="document">
         <!--Content-->
         <div class="modal-content form-elegant">
           <!--Header-->
           <div class="modal-header text-center">
-            <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>Register</strong></h3>
+            <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel"><strong>Sign
+                in</strong></h3>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -157,7 +89,76 @@
               <input type="email" id="Form-email1" class="form-control validate">
               <label data-error="wrong" data-success="right" for="Form-email1">Your email</label>
             </div>
-  
+
+            <div class="md-form pb-3">
+              <input type="password" id="Form-pass1" class="form-control validate">
+              <label data-error="wrong" data-success="right" for="Form-pass1">Your password</label>
+              <div class="form-group mt-4">
+                <input class="form-check-input" type="checkbox" id="checkbox624">
+                <label for="checkbox624" class="white-text form-check-label">Stay connected</label>
+              </div>
+              <p class="font-small blue-text d-flex justify-content-end">Forgot <a href="#"
+                  class="blue-text ml-1">Password?</a></p>
+            </div>
+
+            <div class="text-center mb-3">
+              <button type="button" class="btn blue-gradient btn-block btn-rounded z-depth-1a">Sign in</button>
+            </div>
+            <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign in with:
+            </p>
+
+            <div class="row my-3 d-flex justify-content-center">
+              <!--Facebook-->
+              <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i class="fa fa-facebook"
+                  aria-hidden="true"></i></button>
+              <!--Twitter-->
+              <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i class="fa fa-twitter"
+                  aria-hidden="true"></i></button>
+              <!--Google +-->
+              <button type="button" class="btn btn-white btn-rounded z-depth-1a"><i class="fa fa-google-plus"
+                  aria-hidden="true"></i></button>
+            </div>
+          </div>
+          <!--Footer-->
+          <div class="modal-footer mx-5 pt-3 mb-1">
+            <p class="font-small grey-text d-flex justify-content-end">Not a member? <a href="#sign_up"
+                class="blue-text ml-1">Register</a></p>
+            <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+        <!--/.Content-->
+      </div>
+    </div>
+    <script>
+      $('a[href="#sign_up"]').click(function () {
+        $('#LoginForm').modal('hide');
+        $('#RegisterForm').modal('show');
+      })
+    </script>
+    <!-- Modal -->
+
+    <!-- Modal Register-->
+    <div class="modal fade" id="RegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <!--Content-->
+        <div class="modal-content form-elegant">
+          <!--Header-->
+          <div class="modal-header text-center">
+            <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel">
+              <strong>Register</strong></h3>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <!--Body-->
+          <div class="modal-body mx-4">
+            <!--Body-->
+            <div class="md-form mb-5">
+              <input type="email" id="Form-email1" class="form-control validate">
+              <label data-error="wrong" data-success="right" for="Form-email1">Your email</label>
+            </div>
+
             <div class="md-form pb-3">
               <input type="password" id="Form-pass1" class="form-control validate">
               <label data-error="wrong" data-success="right" for="Form-pass1">Your password</label>
@@ -165,40 +166,46 @@
               <label data-error="wrong" data-success="right" for="Form-pass1">Confirm password</label>
               <div class="form-group mt-4">
                 <input class="form-check-input" type="checkbox" id="checkbox624">
-                <label for="checkbox624" class="white-text form-check-label">Accept the <a href="#" class="green-text font-weight-bold">Terms and Conditions</a></label>
+                <label for="checkbox624" class="white-text form-check-label">Accept the <a href="#"
+                    class="green-text font-weight-bold">Terms and Conditions</a></label>
               </div>
             </div>
-  
+
             <div class="text-center mb-3">
               <button type="button" class="btn blue-gradient btn-block btn-rounded z-depth-1a">Register</button>
             </div>
-            <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Register with:</p>
-  
+            <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Register with:
+            </p>
+
             <div class="row my-3 d-flex justify-content-center">
               <!--Facebook-->
-              <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i class="fa fa-facebook" aria-hidden="true"></i></button>
+              <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i class="fa fa-facebook"
+                  aria-hidden="true"></i></button>
               <!--Twitter-->
-              <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i class="fa fa-twitter" aria-hidden="true"></i></button>
+              <button type="button" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i class="fa fa-twitter"
+                  aria-hidden="true"></i></button>
               <!--Google +-->
-              <button type="button" class="btn btn-white btn-rounded z-depth-1a"><i class="fa fa-google-plus" aria-hidden="true"></i></button>
+              <button type="button" class="btn btn-white btn-rounded z-depth-1a"><i class="fa fa-google-plus"
+                  aria-hidden="true"></i></button>
             </div>
           </div>
           <!--Footer-->
           <div class="modal-footer mx-5 pt-3 mb-1">
-            <p class="font-small grey-text d-flex justify-content-end">Have an account? <a href="#sign_in" class="blue-text ml-1">Sign In</a></p>
+            <p class="font-small grey-text d-flex justify-content-end">Have an account? <a href="#sign_in"
+                class="blue-text ml-1">Sign In</a></p>
             <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
           </div>
         </div>
         <!--/.Content-->
       </div>
-      </div>
-      <script>
-        $('a[href="#sign_in"]').click(function(){
-          $('#RegisterForm').modal('hide');
-          $('#LoginForm').modal('show');
-        })
-      </script>
-      <!-- Modal -->
+    </div>
+    <script>
+      $('a[href="#sign_in"]').click(function () {
+        $('#RegisterForm').modal('hide');
+        $('#LoginForm').modal('show');
+      })
+    </script>
+    <!-- Modal -->
 
     <!-- BOTTOM NAVBAR -->
     <nav class="navbar navbar-expand navbar-light" id="jumbobottomnavbar">
@@ -258,10 +265,10 @@
   <section class="container-fluid" id=shopMovies>
     <h3>Shop Movies</h3>
     <div class="row">
-      <div class="row col-8" id="underShopMovies">
+      <div class="row col-8 col-md-8 col-lg-8 col-sm-12 col-xs-12" id="underShopMovies">
 
       </div>
-      <div class="col-4">
+      <div class="col-4" id="bigCardHide">
         <!-- Modal -->
 
         <div class="card" id="highlightCard">
@@ -285,39 +292,34 @@
   </section>
   <!-- Modal -->
   <div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Contact Us</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content form-elegant">
+
+        <!-- modal body -->
+
+        <div class="modal-body mx-4">
           <div class="container-fluid">
-            <div class="container">
-              <div class="row">
-                <input class="col-6" type="firstname" placeholder="First Name">
-                <input class="col-6" type="lastname" placeholder="Last Name">
-              </div>
-              <div class="row">
-                <input class="col-6" type="email" placeholder="Email">
-                <input class="col-6" type="subject" placeholder="Subject">
-              </div>
-              <div class="row">
-                <input class="col-12" type="message" placeholder="Your Message">
-              </div>
+            <div class="row justify-content-center">
+              <input class="col m-1 rounded" type="firstname" placeholder="First Name">
+              <input class="col m-1 rounded" type="lastname" placeholder="Last Name">
+            </div>
+            <div class="row justify-content-center">
+              <input class="col m-1 rounded" type="email" placeholder="Email">
+              <input class="col m-1 rounded" type="subject" placeholder="Subject">
+            </div>
+            <div class="row justify-content-center">
+              <textarea class="col m-1 rounded" type="message" rows="4" placeholder="Your Message"></textarea>
             </div>
           </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary d-flex justify-content-start" data-dismiss="modal">Send
+        <div class="modal-footer justify-content-start">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Send
             Message</button>
         </div>
       </div>
     </div>
   </div>
-
+  <br>
   <!-- <script>
     $('#exampleModal').on('show.bs.modal', event => {
       var button = $(event.relatedTarget);
@@ -326,8 +328,6 @@
 
     });
   </script> -->
-
-
 
   <footer class="page-footer font-small red pt-4">
     <div class="newsletter">
@@ -421,7 +421,7 @@
             <h5 class="footerTitles" id="hanSolo"><span id="ginger">Allez</span>Cine!</h5>
             <hr class="linebreak">
             <div class="container">
-              <div class="row" id="allezCine"></div>
+              <div class="row" id="allezCine" style="width:15rem;"></div>
             </div>
           </div>
         </div>
@@ -450,6 +450,9 @@
         <a class="" href="https://www.blank.org/" target="_blank">
           <i class=" fa fa-google-plus" aria-hidden="true"></i>
         </a>
+        <!-- <button onclick="topFunction()" id="myBtn" title="Go Up">
+          <i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i>
+        </button> -->
       </div>
 
     </section>
@@ -466,6 +469,17 @@
 
 
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="./assets/js/index.js"></script>
 
 </body>
 

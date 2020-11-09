@@ -1,24 +1,27 @@
 $primary:#F94342;
 
 /// *** BODY *** 
- 
- body {
-   //max-width: 95%;
-   //margin: 0px auto;
-   h1, h2, h3 {
-      text-transform: uppercase;
-      word-wrap: none;
-      color: #000;
-   }
-
-   header.container-fluid{
-     margin: 0;
-     padding: 0;
-   }
- }
-
+html {
+  scroll-behavior: smooth;
+  body {
+    //max-width: 95%;
+    //margin: 0px auto;
+    h1, h2, h3 {
+        text-transform: uppercase;
+        word-wrap: none;
+        color: #000;
+    }
+    header.container-fluid{
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
 a:link {
   text-decoration: none;
+}
+textarea {
+  resize:none;
 }
 
   // *** JUMBOTRON ***
@@ -259,14 +262,17 @@ footer {
   }
 
 .linebreak {
-  background-color: #fff;
-  height: 0.1px;
+  background-color:hsla(0, 0%, 100%, 0.5);
+  height: 1px;
+  border: none;
 }
 
 #footerInputGroup {
   margin-bottom: 1rem;
   color: blue;
 }
+
+
 
 // Review Movies Buttons
 
@@ -278,6 +284,14 @@ footer {
     background: rgba(132, 129, 129, 0.197);
     border: none;
     margin-bottom: 5px;
+  }
+}
+
+// Hide button
+
+#bigCardHide {
+  @media (max-width: 768px) { 
+    visibility: hidden;
   }
 }
 
@@ -303,5 +317,18 @@ h3 {
       justify-content: center;
     }
   }
+}
+
+// Up Button
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 3vw;
+  right: 3vh;
+  font-size:3rem;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: $primary;
 }
 

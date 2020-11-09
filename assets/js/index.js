@@ -72,7 +72,7 @@ var carouselInnerHTMLcode =
 </div>`;
 
 var bigCardHTMLcode =
-    `<figure class="figure justify-content-around row">
+    `<figure class="figure justify-content-around row hidden-xs">
 <img src=_imgSrc class="d-block img-fluid" col-12" alt="">
 <figcaption class="figure-caption text-xs-right col-12 row">
   <div class="container">
@@ -108,7 +108,9 @@ var latestMoviesHTMLcode =
 </div>`;
 
 var allezCineHTMLcode =
-    `<img src= _imgSrc class="figure-img img-fluid col-4" alt="">`
+    `
+    <img src= _imgSrc class="figure-img img-fluid col-4" alt="" >
+    `
 
 // Classes/Objects
 var TMDB = {
@@ -123,10 +125,10 @@ var TMDB = {
 const fetchGenres = fetch('https://api.themoviedb.org/3/genre/movie/list' + TMDB.apiKey + TMDB.apiOption);  // Get all Genres with their id
 const fetchTopRated = fetch('https://api.themoviedb.org/3/movie/top_rated' + TMDB.apiKey + TMDB.apiOption); // Highlighted
 const fetchPopular = fetch('https://api.themoviedb.org/3/movie/popular' + TMDB.apiKey + TMDB.apiOption); // Featured
-const fetchPopular2 = fetch('https://api.themoviedb.org/3/movie/popular' + TMDB.apiKey + TMDB.apiOption+'&page=2'); //more Featured
-const fetchPopular3 = fetch('https://api.themoviedb.org/3/movie/popular' + TMDB.apiKey + TMDB.apiOption+'&page=3'); //more Featured
-const fetchPopular4 = fetch('https://api.themoviedb.org/3/movie/popular' + TMDB.apiKey + TMDB.apiOption+'&page=4'); //more Featured
-const fetchPopular5 = fetch('https://api.themoviedb.org/3/movie/popular' + TMDB.apiKey + TMDB.apiOption+'&page=5'); //more Featured
+const fetchPopular2 = fetch('https://api.themoviedb.org/3/movie/popular' + TMDB.apiKey + TMDB.apiOption + '&page=2'); //more Featured
+const fetchPopular3 = fetch('https://api.themoviedb.org/3/movie/popular' + TMDB.apiKey + TMDB.apiOption + '&page=3'); //more Featured
+const fetchPopular4 = fetch('https://api.themoviedb.org/3/movie/popular' + TMDB.apiKey + TMDB.apiOption + '&page=4'); //more Featured
+const fetchPopular5 = fetch('https://api.themoviedb.org/3/movie/popular' + TMDB.apiKey + TMDB.apiOption + '&page=5'); //more Featured
 const fetchNowPlaying = fetch('https://api.themoviedb.org/3/movie/popular' + TMDB.apiKey + TMDB.apiOption); // Get Movies to populate jumbotron carousel
 const fetchShowMovies = fetch('https://api.themoviedb.org/3/movie/now_playing' + TMDB.apiKey + TMDB.apiOption); // Shop Movies
 const fetchBigCard = fetch('https://api.themoviedb.org/3/movie/now_playing' + TMDB.apiKey + TMDB.apiOption); // Big Card
@@ -191,17 +193,17 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchPopular2, fetchPopul
 
     // Featured Movies Genre Filter buttons
     let genreFilterDiv = document.createElement('div');
-    genreFilterDiv.setAttribute('class','row');
+    genreFilterDiv.setAttribute('class', 'row');
     let tmpDiv = document.createElement('div');
-        tmpDiv.innerHTML = 'ALL';
-        tmpDiv.setAttribute('class','btn btn-danger');
-        tmpDiv.id = 'ALL';
-        genreFilterDiv.appendChild(tmpDiv);
+    tmpDiv.innerHTML = 'ALL';
+    tmpDiv.setAttribute('class', 'btn btn-danger');
+    tmpDiv.id = 'ALL';
+    genreFilterDiv.appendChild(tmpDiv);
 
-    featuredGenre.forEach((elem)=>{
+    featuredGenre.forEach((elem) => {
         let tmpDiv = document.createElement('div');
         tmpDiv.innerHTML = elem;
-        tmpDiv.setAttribute('class','btn btn-danger');
+        tmpDiv.setAttribute('class', 'btn btn-danger');
         tmpDiv.id = elem;
         genreFilterDiv.appendChild(tmpDiv);
     });
@@ -210,31 +212,31 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchPopular2, fetchPopul
     let currentFilter = 'ALL';
 
     // Click Genre Filter
-    document.querySelectorAll('#featuredMovies .btn').forEach((button)=>{
-        button.addEventListener('click', function(event){
+    document.querySelectorAll('#featuredMovies .btn').forEach((button) => {
+        button.addEventListener('click', function (event) {
             let count = 0;
-            if(event.target.innerHTML != currentFilter)document.getElementById('moreless').innerHTML = 'More';
+            if (event.target.innerHTML != currentFilter) document.getElementById('moreless').innerHTML = 'More';
             currentFilter = event.target.id;
-            document.querySelectorAll('#featuredMovies .card').forEach((card, index) =>{
-                if(event.target.innerHTML.trim() == 'ALL' && index < FeaturedDisplayed){card.parentNode.style.display="block"; count = Featured.length;}
-                else if(card.querySelector('#highlightGenre').innerHTML.trim() != event.target.innerHTML.trim()){card.parentNode.style.display="none";}
-                else if(count < FeaturedDisplayed){card.parentNode.style.display="block"; count++;}
-                else{card.parentNode.style.display="none";}
+            document.querySelectorAll('#featuredMovies .card').forEach((card, index) => {
+                if (event.target.innerHTML.trim() == 'ALL' && index < FeaturedDisplayed) { card.parentNode.style.display = "block"; count = Featured.length; }
+                else if (card.querySelector('#highlightGenre').innerHTML.trim() != event.target.innerHTML.trim()) { card.parentNode.style.display = "none"; }
+                else if (count < FeaturedDisplayed) { card.parentNode.style.display = "block"; count++; }
+                else { card.parentNode.style.display = "none"; }
 
-                if(count < 12){document.getElementById('moreless').style.display = 'none';}
-                else{document.getElementById('moreless').style.display = 'block';}
+                if (count < 12) { document.getElementById('moreless').style.display = 'none'; }
+                else { document.getElementById('moreless').style.display = 'block'; }
             });
-            
+
         });
     });
 
     // Button More/Less
-    document.getElementById('moreless').addEventListener('click', function(event){
-        if(FeaturedDisplayed < Featured.length){
+    document.getElementById('moreless').addEventListener('click', function (event) {
+        if (FeaturedDisplayed < Featured.length) {
             FeaturedDisplayed += 1000;
             event.target.innerHTML = 'Less';
         }
-        else{
+        else {
             event.target.innerHTML = 'More';
             FeaturedDisplayed -= 1000;
         }
@@ -312,3 +314,28 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchPopular2, fetchPopul
 
 });
 
+// Footer button
+
+var scrollButton = document.createElement("button");
+scrollButton.innerHTML = `<i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i>`;
+scrollButton.setAttribute("id", "myBtn");
+
+var place = document.getElementById("footerFun");
+place.appendChild(scrollButton);
+
+// let scrollButton = getElementById("myBtn");
+
+window.onscroll = function () { scrollFunction() };
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        scrollButton.style.display = "block";
+    } else {
+        scrollButton.style.display = "none";
+    }
+}
+
+scrollButton.addEventListener("click", () => {
+
+    document.documentElement.scrollTop = 0;
+});
