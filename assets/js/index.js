@@ -22,6 +22,7 @@ var highlightedMovieCardHTMLcode =
             <p class="card-title col-12"> _title </p>
             <p class="card-text col-6 m-0 p-0 text-left" id="highlightYear"> _year </p>
             <p class="card-text col-6 m-0 p-0 text-right" id="highlightGenre"> _genre </p>
+            <p class="d-none"></p>
         </figcaption>
         </figure> 
     </div>
@@ -148,7 +149,6 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchPopular2, fetchPopul
     bigCard = card.results.slice(0, 1);
     latestMovies = latest.results.slice(0, 4);
     allezCine = allez.results.slice(0, 6);
-    //console.log(highlighted);
 
 
     // HTML Selection
@@ -171,7 +171,7 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchPopular2, fetchPopul
         html_highlightedMoviesRow.insertAdjacentHTML('beforeend', tmp);
     });
 
-    // Array to collect all unfiltered movie genres
+    // Array to collect all unfiltered Featured movie genres
     var rawFeaturedGenre = [];
 
     // Build Featured Cards
@@ -189,7 +189,7 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchPopular2, fetchPopul
     featuredGenre = Array.from([...new Set(rawFeaturedGenre)]);
     featuredGenre = featuredGenre.sort();
 
-    // Featured Movies Genre Filter
+    // Featured Movies Genre Filter buttons
     let genreFilterDiv = document.createElement('div');
     genreFilterDiv.setAttribute('class','row');
     let tmpDiv = document.createElement('div');
