@@ -314,6 +314,10 @@ footer {
 
 // Review Movies Buttons
 
+#shopMovies {
+  padding: 0 5%;
+}
+
 #footerButtons {
   // display: flex;
   // background-color: red;
@@ -329,7 +333,7 @@ footer {
 
 #bigCardHide {
   @media (max-width: 768px) { 
-    visibility: hidden;
+   display: none; //instead of visibility otherwise stays there 
   }
 }
 

@@ -12,7 +12,7 @@ var FeaturedDisplayed = 12;
 
 // Templates
 
-var highlightedMovieCardHTMLcode =`<div class="col-lg-2">
+var highlightedMovieCardHTMLcode = `<div class="col-lg-2">
     <div class="card border-0" id="highlightCard">
     <div class="card-body">
         <figure class="figure justify-content-around row">
@@ -27,7 +27,7 @@ var highlightedMovieCardHTMLcode =`<div class="col-lg-2">
     </div>
     </div>
 </div>`;
-var featuredMovieCardHTMLcode =`<div class="col-lg-2">
+var featuredMovieCardHTMLcode = `<div class="col-lg-2">
     <div class="card border-0" id="highlightCard">
     <div class="card-body">
         <figure class="figure justify-content-around row">
@@ -43,7 +43,7 @@ var featuredMovieCardHTMLcode =`<div class="col-lg-2">
     </div>
 </div>`;
 
-var shopMoviesCardHTMLcode =`<div class="col-lg-3">
+var shopMoviesCardHTMLcode = `<div class="col-lg-3">
     <div class="card border-0" id="highlightCard">
     <div class="card-body">
         <figure class="figure justify-content-around row">
@@ -58,7 +58,7 @@ var shopMoviesCardHTMLcode =`<div class="col-lg-3">
     </div>
 </div>`;
 
-var carouselInnerHTMLcode =`<div class="carousel-item _tmp " style="max-height: 768px;">
+var carouselInnerHTMLcode = `<div class="carousel-item _tmp " style="max-height: 768px;">
 <img class="d-block img-fluid" src= _imgSrc alt="First slide">
 <div class="carousel-caption d-none d-md-block mb-3">
   <h1 class="display-3"><span class="whitespan">LATEST</span> ON<span class="whitespan">LINE</span> MO<span class="whitespan">VIES</span></h1>
@@ -69,7 +69,7 @@ var carouselInnerHTMLcode =`<div class="carousel-item _tmp " style="max-height: 
   </p>
 </div>`;
 
-var bigCardHTMLcode =`<figure class="figure justify-content-around row hidden-xs">
+var bigCardHTMLcode = `<figure class="figure justify-content-around row hidden-xs">
 <img src=_imgSrc class="d-block img-fluid" col-12" alt="">
 <figcaption class="figure-caption text-xs-right col-12 row">
   <div class="container">
@@ -206,8 +206,8 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchPopular2, fetchPopul
         tmpDiv.setAttribute('class', 'btn btn-danger');
         tmpDiv.id = elem;
         genreFilterDiv.appendChild(tmpDiv);
-        document.getElementById('navDropdown').insertAdjacentHTML('beforeend','<a class="dropdown-item" href="#featuredMovies">'+elem+'</a>');
-        document.getElementById('navDropdown').lastChild.addEventListener('click', function(event){
+        document.getElementById('navDropdown').insertAdjacentHTML('beforeend', '<a class="dropdown-item" href="#featuredMovies">' + elem + '</a>');
+        document.getElementById('navDropdown').lastChild.addEventListener('click', function (event) {
             let eventDropdown = new Event('click');
             document.getElementById(this.innerHTML.trim()).dispatchEvent(eventDropdown);
         });
@@ -217,8 +217,8 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchPopular2, fetchPopul
     let currentFilter = 'ALL';
 
     // Click Featured Genre Filter
-    document.querySelectorAll('#featuredMovies .btn').forEach((button)=>{
-        button.addEventListener('click', function(event){
+    document.querySelectorAll('#featuredMovies .btn').forEach((button) => {
+        button.addEventListener('click', function (event) {
             let count = 0;
             if (event.target.innerHTML != currentFilter) document.getElementById('moreless').innerHTML = 'More';
             currentFilter = event.target.id;
@@ -264,10 +264,10 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchPopular2, fetchPopul
         html_shopMovies.insertAdjacentHTML('beforeend', tmp);
     });
 
-    html_shopMovies.querySelectorAll('.card').forEach((card)=>{
-        card.addEventListener('click', function(event){
-                bigCardDetails(this);
-            });
+    html_shopMovies.querySelectorAll('.card').forEach((card) => {
+        card.addEventListener('click', function (event) {
+            bigCardDetails(this);
+        });
     });
 
     // Build Big Card
@@ -292,8 +292,8 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchPopular2, fetchPopul
         tmp = tmp.replace(/_href/, TMDB.youtubeBaseURL + a[0]);
         html_NowTheatre.insertAdjacentHTML('beforeend', tmp);
         let indic;
-        if(index == 0){indic = '<li data-target="#carouselExampleIndicators" class="active" data-slide-to="'+index+'"></li>';}
-        else {indic ='<li data-target="#carouselExampleIndicators" data-slide-to="'+index+'"></li>';}
+        if (index == 0) { indic = '<li data-target="#carouselExampleIndicators" class="active" data-slide-to="' + index + '"></li>'; }
+        else { indic = '<li data-target="#carouselExampleIndicators" data-slide-to="' + index + '"></li>'; }
         document.getElementsByClassName('carousel-indicators')[0].insertAdjacentHTML('beforeend', indic);
     });
 
@@ -314,9 +314,9 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchPopular2, fetchPopul
         html_allezCine.insertAdjacentHTML('beforeend', tmp);
     });
 
-     // Add Eventlisteners to open details modal
-     modalDetails(html_highlightedMoviesRow);
-     modalDetails(html_featuredMoviesRow);
+    // Add Eventlisteners to open details modal
+    modalDetails(html_highlightedMoviesRow);
+    modalDetails(html_featuredMoviesRow);
 
     // Get functions
     function getGenreName(movieGenreId) {
@@ -332,18 +332,18 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchPopular2, fetchPopul
         throw new Error(res.status);
     }
 
-    function modalDetails(htmlContainerWithCards){
+    function modalDetails(htmlContainerWithCards) {
         // Add Eventlisteners to open details modal of Highlited cards
-        htmlContainerWithCards.querySelectorAll('.card').forEach((card)=>{
-            card.addEventListener('click', function(event){
+        htmlContainerWithCards.querySelectorAll('.card').forEach((card) => {
+            card.addEventListener('click', function (event) {
                 //console.log(this.querySelector('#movieId').innerHTML.trim());
 
-                const movieDetails = fetch('https://api.themoviedb.org/3/movie/'+this.querySelector('#movieId').innerHTML.trim()+ TMDB.apiKey + TMDB.apiOption);
-                
-                Promise.all([movieDetails]).then((values)=>{
+                const movieDetails = fetch('https://api.themoviedb.org/3/movie/' + this.querySelector('#movieId').innerHTML.trim() + TMDB.apiKey + TMDB.apiOption);
+
+                Promise.all([movieDetails]).then((values) => {
                     return Promise.all(values.map(fetch => fetch.json()))
-                }).then(([x])=>{
-                    if(html_modalMovieDetails.firstChild)html_modalMovieDetails.removeChild(html_modalMovieDetails.firstChild);
+                }).then(([x]) => {
+                    if (html_modalMovieDetails.firstChild) html_modalMovieDetails.removeChild(html_modalMovieDetails.firstChild);
                     let tmp = bigCardHTMLcode;
                     tmp = tmp.replace(/_title/, x.title);
                     tmp = tmp.replace(/_summary/, x.overview);
@@ -358,12 +358,12 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchPopular2, fetchPopul
     }
 
     // Function to populate BigCard in Shop section (bigCardDetails(card);)
-    function bigCardDetails(card){
-        const bigCardDetails = fetch('https://api.themoviedb.org/3/movie/'+card.querySelector('#movieId').innerHTML.trim()+ TMDB.apiKey + TMDB.apiOption);
-        
-        Promise.all([bigCardDetails]).then((values)=>{
+    function bigCardDetails(card) {
+        const bigCardDetails = fetch('https://api.themoviedb.org/3/movie/' + card.querySelector('#movieId').innerHTML.trim() + TMDB.apiKey + TMDB.apiOption);
+
+        Promise.all([bigCardDetails]).then((values) => {
             return Promise.all(values.map(fetch => fetch.json()))
-        }).then(([x])=>{
+        }).then(([x]) => {
             html_bigCard.innerHTML = '';
             let tmp = bigCardHTMLcode;
             tmp = tmp.replace(/_title/, x.title);
@@ -374,30 +374,30 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchPopular2, fetchPopul
             html_bigCard.insertAdjacentHTML('beforeend', tmp);
         });
     }
-// Footer button
+    // Footer button
 
-var scrollButton = document.createElement("button");
-scrollButton.innerHTML = `<i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i>`;
-scrollButton.setAttribute("id", "myBtn");
+    var scrollButton = document.createElement("button");
+    scrollButton.innerHTML = `<i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i>`;
+    scrollButton.setAttribute("id", "myBtn");
 
-var place = document.getElementById("footerFun");
-place.appendChild(scrollButton);
+    var place = document.getElementById("footerFun");
+    place.appendChild(scrollButton);
 
-// let scrollButton = getElementById("myBtn");
+    // let scrollButton = getElementById("myBtn");
 
-window.onscroll = function () { scrollFunction() };
+    window.onscroll = function () { scrollFunction() };
 
-function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        scrollButton.style.display = "block";
-    } else {
-        scrollButton.style.display = "none";
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            scrollButton.style.display = "block";
+        } else {
+            scrollButton.style.display = "none";
+        }
     }
-}
 
-scrollButton.addEventListener("click", () => {
+    scrollButton.addEventListener("click", () => {
 
-    document.documentElement.scrollTop = 0;
-});
+        document.documentElement.scrollTop = 0;
+    });
 
 });
