@@ -69,12 +69,7 @@ var carouselInnerHTMLcode =`<div class="carousel-item _tmp " style="max-height: 
   </p>
 </div>`;
 
-<<<<<<< HEAD
-var bigCardHTMLcode =`<div><figure class="figure justify-content-around row">
-=======
-var bigCardHTMLcode =
-    `<figure class="figure justify-content-around row hidden-xs">
->>>>>>> kultik
+var bigCardHTMLcode =`<figure class="figure justify-content-around row hidden-xs">
 <img src=_imgSrc class="d-block img-fluid" col-12" alt="">
 <figcaption class="figure-caption text-xs-right col-12 row">
   <div class="container">
@@ -221,15 +216,9 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchPopular2, fetchPopul
 
     let currentFilter = 'ALL';
 
-<<<<<<< HEAD
     // Click Featured Genre Filter
     document.querySelectorAll('#featuredMovies .btn').forEach((button)=>{
         button.addEventListener('click', function(event){
-=======
-    // Click Genre Filter
-    document.querySelectorAll('#featuredMovies .btn').forEach((button) => {
-        button.addEventListener('click', function (event) {
->>>>>>> kultik
             let count = 0;
             if (event.target.innerHTML != currentFilter) document.getElementById('moreless').innerHTML = 'More';
             currentFilter = event.target.id;
@@ -364,7 +353,6 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchPopular2, fetchPopul
         });
     }
 
-<<<<<<< HEAD
     // Function to populate BigCard in Shop section (bigCardDetails(card);)
     function bigCardDetails(card){
         const bigCardDetails = fetch('https://api.themoviedb.org/3/movie/'+card.querySelector('#movieId').innerHTML.trim()+ TMDB.apiKey + TMDB.apiOption);
@@ -382,7 +370,6 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchPopular2, fetchPopul
             html_bigCard.insertAdjacentHTML('beforeend', tmp);
         });
     }
-=======
 // Footer button
 
 var scrollButton = document.createElement("button");
@@ -407,5 +394,6 @@ function scrollFunction() {
 scrollButton.addEventListener("click", () => {
 
     document.documentElement.scrollTop = 0;
->>>>>>> kultik
+});
+
 });
