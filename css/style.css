@@ -61,9 +61,6 @@ a:link {
   color: #db5252;
   font-size: 48px;
 }
-#jumbotron #navbar .navbar-brand #whitespan {
-  color: white;
-}
 #jumbotron #navbar .navbar-collapse {
   background-color: rgba(85, 75, 75, 0.7);
   padding: 0px 15px;
