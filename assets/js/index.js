@@ -65,7 +65,7 @@ var carouselInnerHTMLcode = `<div class="carousel-item _tmp " style="max-height:
   <p class="lead"> _title </p>
   <hr class="my-2">
   <p class="lead">
-    <a class="btn btn-primary btn-lg" href= _href target="_blank" role="button">Watch trailer</a>
+    <a class="btn btn-primary btn-lg" href= _href target="_blank" role="button" rel="noopener">Watch trailer</a>
   </p>
 </div>`;
 
@@ -380,6 +380,7 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchPopular2, fetchPopul
     var scrollButton = document.createElement("button");
     scrollButton.innerHTML = `<i class="fa fa-arrow-circle-o-up" aria-hidden="true"></i>`;
     scrollButton.setAttribute("id", "myBtn");
+    scrollButton.setAttribute("name", "scrollButton");
 
     var place = document.getElementById("footerFun");
     place.appendChild(scrollButton);
