@@ -138,7 +138,7 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchPopular2, fetchPopul
 }).then(([genres, topRated, popular, popular2, popular3, popular4, popular5, nowPlaying, showThem, card, latest, allez]) => {
     genreList = genres.genres;
     highlighted = topRated.results.slice(0, 5);
-    Featured = popular.results
+    Featured = popular.results;
     Featured = Featured.concat(popular2.results);
     Featured = Featured.concat(popular3.results);
     Featured = Featured.concat(popular4.results);
@@ -163,6 +163,7 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchPopular2, fetchPopul
 
     // Build Highlighted Cards
     highlighted.map((x) => {
+        console.log(x.genre_ids[0]);
         let tmp = highlightedMovieCardHTMLcode;
         tmp = tmp.replace(/_title/, x.title);
         tmp = tmp.replace(/_year/, x.release_date.substring(0, x.release_date.indexOf('-')));
@@ -320,7 +321,8 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchPopular2, fetchPopul
 
     // Get functions
     function getGenreName(movieGenreId) {
-        return genreList.find(element => element.id == movieGenreId).name;
+        if(movieGenreId != null){return genreList.find(element => element.id == movieGenreId).name;}
+        else {return "error";}
     }
 
     async function getTrailer(id) {
