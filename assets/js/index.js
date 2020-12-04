@@ -113,8 +113,8 @@ var allezCineHTMLcode =
 var TMDB = {
     apiKey: "?api_key=766c1ba4a606493ccaf76431323f4829",
     apiOption: "&language=fr",
-    apiBaseURL: "http://api.themoviedb.org/3/",
-    apiImageBaseURL: "http://image.tmdb.org/t/p/",
+    apiBaseURL: "https://api.themoviedb.org/3/",
+    apiImageBaseURL: "https://image.tmdb.org/t/p/",
     youtubeBaseURL: "https://www.youtube.com/watch?v="
 };
 
@@ -163,7 +163,6 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchPopular2, fetchPopul
 
     // Build Highlighted Cards
     highlighted.map((x) => {
-        console.log(x.genre_ids[0]);
         let tmp = highlightedMovieCardHTMLcode;
         tmp = tmp.replace(/_title/, x.title);
         tmp = tmp.replace(/_year/, x.release_date.substring(0, x.release_date.indexOf('-')));
