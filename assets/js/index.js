@@ -321,7 +321,7 @@ Promise.all([fetchGenres, fetchTopRated, fetchPopular, fetchPopular2, fetchPopul
     // Get functions
     function getGenreName(movieGenreId) {
         if(movieGenreId != null){return genreList.find(element => element.id == movieGenreId).name;}
-        else {return "error";}
+        else {return "Sans catégorie";}
     }
 
     async function getTrailer(id) {
